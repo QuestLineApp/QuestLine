@@ -3,4 +3,4 @@
 * create local quest - 5hrs
 * display local icons on map - 2hrs
 * login in with google creds - 5hrs
-* set up remote server - 13hrs
+* set up remote database server - 13hrs
