@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
+import { StackNavigator } from 'react-navigation';
+import HomeScreen from './HomeScreen';
 
 class LoginScreen extends Component {
   render() {
@@ -13,4 +15,9 @@ class LoginScreen extends Component {
   }
 }
 
-export default LoginScreen;
+const LoginScreenStackNav = StackNavigator({
+  LoginScreen: { screen : LoginScreen },
+  HomeScreen: { screen : HomeScreen },
+});
+
+export default LoginScreenStackNav;
