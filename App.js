@@ -1,27 +1,22 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import { DrawerNavigator } from 'react-navigation';
+// import { DrawerNavigator } from 'react-navigation';
+import { Icon, Button, Container, Header, Content, Left } from 'native-base';
 
-// import LoginScreen from './Screens/LoginScreen'
+import LoginScreen from './Screens/LoginScreen'
 import HomeScreen from './Screens/HomeScreen'
 import SettingsScreen from './Screens/SettingsScreen'
 
 export default class App extends React.Component {
   render() {
-    return (
-      <AppDrawerNav/>
-    );
+    return <LoginScreen />;
   }
 }
 
-// const AppNavigator = StackNavigator ({
-// });
-
-const AppDrawerNav = DrawerNavigator ({
-  // LoginScreen: { screen : LoginScreen },
+const AppNavigator = StackNavigator ({
+  Login: { screen : LoginScreen },
   Home: { screen : HomeScreen },
-  Settings: { screen : SettingsScreen },
 });
 
 const styles = StyleSheet.create({
