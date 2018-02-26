@@ -8,6 +8,7 @@ import { Icon, Button, Container, Body, Header, Content, Left } from 'native-bas
 
 import SettingsScreen from './SettingsScreen';
 import NotificationsScreen from './NotificationsScreen';
+import LocationScreen from '../gps/gps';
 // import gStyles from '../gStyles.js';
 
 class HomeScreen extends Component {
@@ -57,6 +58,7 @@ const CustomDrawerContent = (props) => (
 
 const HomeDrawerNav = DrawerNavigator ({
   Home: { screen : HomeScreen },
+  Location: { screen : LocationScreen },
   Settings: { screen : SettingsScreen },
 },{
   initialRouteName : 'Home',
