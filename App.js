@@ -1,15 +1,23 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { StackNavigator } from 'react-navigation';
+// import { DrawerNavigator } from 'react-navigation';
+import { Icon, Button, Container, Header, Content, Left } from 'native-base';
+
+import LoginScreen from './Screens/LoginScreen'
+import HomeScreen from './Screens/HomeScreen'
+import SettingsScreen from './Screens/SettingsScreen'
 
 export default class App extends React.Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <Text>Welcome to QuestLine</Text>
-      </View>
-    );
+    return <LoginScreen />;
   }
 }
+
+const AppNavigator = StackNavigator ({
+  Login: { screen : LoginScreen },
+  Home: { screen : HomeScreen },
+});
 
 const styles = StyleSheet.create({
   container: {
