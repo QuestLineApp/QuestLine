@@ -45,7 +45,7 @@ class Location extends Component {
   render() {
     return (
       <Container>
-        <Header style={{backgroundColor:'#246A73'}}>
+        <Header style={{backgroundColor:'#246A73'}}> //TODO: make a global style
           <Left>
             <Button transparent>
               <Icon name='menu' onPress={()=>this.props.navigation.navigate('DrawerOpen')} />
