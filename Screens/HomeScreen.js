@@ -8,7 +8,7 @@ import { Icon, Button, Container, Body, Header, Content, Left } from 'native-bas
 
 import SettingsScreen from './SettingsScreen';
 import NotificationsScreen from './NotificationsScreen';
-import LocationScreen from '../gps/gps';
+import LocationScreen from '../Screens/gps';
 // import gStyles from '../gStyles.js';
 
 class HomeScreen extends Component {

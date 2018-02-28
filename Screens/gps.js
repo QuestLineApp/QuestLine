@@ -45,7 +45,7 @@ class Location extends Component {
   render() {
     return (
       <Container>
-        <Header style={{backgroundColor:'#246A73'}}> //TODO: make a global style
+        <Header style={{backgroundColor:'#246A73'}}>
           <Left>
             <Button transparent>
               <Icon name='menu' onPress={()=>this.props.navigation.navigate('DrawerOpen')} />
@@ -57,6 +57,7 @@ class Location extends Component {
           alignItems : 'center',
           justifyContent : 'center'
         }}>
+        <Text>Live GPS Tracking</Text>
         <Text>Latitude:  {this.state.latitude}</Text>
         <Text>Longitude: {this.state.longitude}</Text>
         {this.state.error ? <Text>Error: {this.state.error}</Text> : null}
