@@ -8,6 +8,12 @@ import LoginScreen from './Screens/LoginScreen'
 import HomeScreen from './Screens/HomeScreen'
 import SettingsScreen from './Screens/SettingsScreen'
 
+// Redux imports.  We probably won't use all of them.  These are to verify that redux is working.  
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, combineReduxers, compose } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import createLogger from 'redux-logger';
+
 export default class App extends React.Component {
   render() {
     return <LoginScreen />;

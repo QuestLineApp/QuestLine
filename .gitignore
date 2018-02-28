@@ -19,3 +19,5 @@ yarn-error.log*
 # VIM
 *.swp
 *.un~
+metro-cache-*
+haste-map-metro-*
