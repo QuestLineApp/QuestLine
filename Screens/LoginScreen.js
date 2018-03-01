@@ -9,10 +9,11 @@ import HomeScreen from './HomeScreen';
 class LoginScreen extends Component {
   signInWithGoogleAsync = async () => {
     try {
+			console.log("kill me");
       const result = await Expo.Google.logInAsync({
-				behavior: 'standalone',
-        androidClientId: ' 891799707034-trepglhtmhjfoms1v7ga8nasj543fcn2.apps.googleusercontent.com ',
-        iosClientId: process.env.GOOGLE_IOS_CLIENT_ID,
+				behavior: 'system',
+        androidClientId: '891799707034-97rf6tj1vpn7o4g2qkshfj8tr92sbhvj.apps.googleusercontent.com',
+        iosClientId: '891799707034-n5nsf0j38io8uu5huq337ov3lk10ipfn.apps.googleusercontent.com',
         scopes: ['profile'],
       })
 
@@ -28,6 +29,8 @@ class LoginScreen extends Component {
 
   onLoginPress = async () => {
     const result = await this.signInWithGoogleAsync()
+		console.log("signed in");
+		console.log(result);
     // if there is no result.error or result.cancelled, the user is logged in
     // do something with the result
   }
@@ -45,7 +48,7 @@ class LoginScreen extends Component {
           <Button block light onPress={() => this.props.navigation.navigate('HomeScreen')}>
             <Text> Google Login </Text>
           </Button>
-          <Button onPress={this.onLoginPress}><Text>Login</Text></Button>
+          <Button block light onPress={this.onLoginPress}><Text>Google Login</Text></Button>
         </Content>
 
       </Container>
