@@ -32,6 +32,15 @@ class LoginScreen extends Component {
     const result = await this.signInWithGoogleAsync()
 		console.log("signed in");
 		console.log(result);
+		if(result.type = 'success'){
+			this.props.navigation.navigate('HomeScreen');
+		}
+		else if(result.type = 'cancelled'){
+			this.props.navigation.navigate('HomeScreen');
+		}
+		else console.log("login failed");
+
+
     // if there is no result.error or result.cancelled, the user is logged in
     // do something with the result
   }
@@ -46,9 +55,6 @@ class LoginScreen extends Component {
         }}>
           <Text>Welcome to Questline</Text>
           <Text> Please Login </Text>
-          <Button block light onPress={() => this.props.navigation.navigate('HomeScreen')}>
-            <Text> Google Login </Text>
-          </Button>
           <Button block light onPress={this.onLoginPress}><Text>Google Login</Text></Button>
         </Content>
 
