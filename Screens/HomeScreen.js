@@ -9,7 +9,7 @@ import { Icon, Button, Container, Body, Header, Content, Left } from 'native-bas
 import SettingsScreen from './SettingsScreen';
 import NotificationsScreen from './NotificationsScreen';
 import LocationScreen from '../Screens/gps';
-// import gStyles from '../gStyles.js';
+import { MapView } from 'expo';
 
 class HomeScreen extends Component {
   static navigationOptions = {
@@ -28,13 +28,20 @@ class HomeScreen extends Component {
             </Button>
           </Left>
         </Header>
-        <Content contentContainerStyle= {{
-          flex: 1,
-          alignItems: 'center',
-          justifyContent : 'center',
-        }}>
-          <Text> Home Screen </Text>
-        </Content>
+
+
+        <MapView
+        style={{ flex: 1 }}
+        initialRegion={{
+          latitude: 37.78825,
+          longitude: -122.4324,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
+        showsUserLocation={true}
+        followsUserLocation={true}
+      />
+
       </Container>
     );
   }
