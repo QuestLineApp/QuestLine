@@ -11,8 +11,9 @@ class LoginScreen extends Component {
     try {
 			console.log("kill me");
       const result = await Expo.Google.logInAsync({
-				behavior: 'system',
+				behavior: 'web',
         androidClientId: '891799707034-97rf6tj1vpn7o4g2qkshfj8tr92sbhvj.apps.googleusercontent.com',
+				androidStandaloneAppClientId: '891799707034-97rf6tj1vpn7o4g2qkshfj8tr92sbhvj.apps.googleusercontent.com',
         iosClientId: '891799707034-n5nsf0j38io8uu5huq337ov3lk10ipfn.apps.googleusercontent.com',
         scopes: ['profile'],
       })
