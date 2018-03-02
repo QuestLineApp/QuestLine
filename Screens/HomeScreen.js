@@ -9,7 +9,7 @@ import { Icon, Button, Container, Body, Header, Content, Left } from 'native-bas
 import SettingsScreen from './SettingsScreen';
 import NotificationsScreen from './NotificationsScreen';
 import LocationScreen from '../Screens/gps';
-import { MapView } from 'expo';// import gStyles from '../gStyles.js';
+import { MapView } from 'expo';
 
 class HomeScreen extends Component {
   static navigationOptions = {
