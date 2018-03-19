@@ -7,6 +7,7 @@ import { DrawerNavigator, DrawerItems } from 'react-navigation';
 import { Icon, Button, Container, Body, Header, Content, Left } from 'native-base';
 
 import SettingsScreen from './SettingsScreen';
+import ProfileScreen from './ProfileScreen';
 import NotificationsScreen from './NotificationsScreen';
 import LocationScreen from '../Screens/gps';
 import { MapView } from 'expo';
@@ -67,6 +68,7 @@ const HomeDrawerNav = DrawerNavigator ({
   Home: { screen : HomeScreen },
   Location: { screen : LocationScreen },
   Settings: { screen : SettingsScreen },
+  Profile: { screen : ProfileScreen },
 },{
   initialRouteName : 'Home',
   contentComponent : CustomDrawerContent,
