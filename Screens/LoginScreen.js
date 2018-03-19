@@ -9,7 +9,6 @@ import HomeScreen from './HomeScreen';
 class LoginScreen extends Component {
   signInWithGoogleAsync = async () => {
     try {
-      console.log("kill me");
       const result = await Expo.Google.logInAsync({
         behavior: 'web',
         androidClientId: '891799707034-97rf6tj1vpn7o4g2qkshfj8tr92sbhvj.apps.googleusercontent.com',
