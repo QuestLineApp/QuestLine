@@ -27,7 +27,7 @@ class ProfileScreen extends Component {
           alignItems : 'center',
           justifyContent : 'center'
         }}>
-        <Text> Profile Screen </Text>
+        <Text>{user.name}</Text>
         </Content>
       </Container>
     );

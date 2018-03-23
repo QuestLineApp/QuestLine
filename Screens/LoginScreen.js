@@ -7,6 +7,13 @@ import Expo from 'expo'
 import HomeScreen from './HomeScreen';
 
 class LoginScreen extends Component {
+  constructor() {
+    super()
+    this.state = {
+      myText: ''
+    }
+  }
+
   signInWithGoogleAsync = async () => {
     try {
       const result = await Expo.Google.logInAsync({
@@ -31,11 +38,17 @@ class LoginScreen extends Component {
     const result = await this.signInWithGoogleAsync()
     console.log("signed in");
     console.log(result);
-    if(result.type = 'success'){
+
+    user = result.user;
+    console.log("\n-----------------LOGIN---------------\n" , user);
+
+    this.setState({myText: 'Please login with Google'})
+
+    if(result.type === 'success'){
       this.props.navigation.navigate('HomeScreen');
     }
-    else if(result.type = 'cancelled'){
-      this.props.navigation.navigate('HomeScreen');
+    else if(result.cancelled){
+      // this.props.navigation.navigate('LoginScreen');
     }
     else console.log("login failed");
 
@@ -55,7 +68,21 @@ class LoginScreen extends Component {
       <Text>Welcome to Questline</Text>
       <Text> Please Login </Text>
       <Button block light onPress={this.onLoginPress}><Text>Google Login</Text></Button>
-      <Button block light onPress={() => this.props.navigation.navigate('HomeScreen')}><Text>Skip to Home</Text></Button>
+      <Button block light onPress={() => {
+        user =  {
+          "email": undefined,
+          "familyName": "Questline",
+          "givenName": "Developer",
+          "id": "0",
+          "name": "Developer Questline",
+          "photoUrl": "../assets/DevProfile.jpg",
+        };
+        console.log(user);
+        this.props.navigation.navigate('HomeScreen')
+      }}><Text>Skip to Home</Text></Button>
+
+      <Text>{this.state.myText}</Text>
+
       </Content>
 
       </Container>
