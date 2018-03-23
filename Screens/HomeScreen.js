@@ -9,6 +9,8 @@ import { Icon, Button, Container, Body, Header, Content, Left } from 'native-bas
 import SettingsScreen from './SettingsScreen';
 import NotificationsScreen from './NotificationsScreen';
 import LocationScreen from '../Screens/gps';
+import QuestCreateScreen from '../Screens/QuestCreateScreen';
+
 import { MapView } from 'expo';
 
 class HomeScreen extends Component {
@@ -44,7 +46,7 @@ class HomeScreen extends Component {
 
       </Container>
     );
-  }
+  }const
 }
 
 const CustomDrawerContent = (props) => (
@@ -67,6 +69,7 @@ const HomeDrawerNav = DrawerNavigator ({
   Home: { screen : HomeScreen },
   Location: { screen : LocationScreen },
   Settings: { screen : SettingsScreen },
+  New: { screen: QuestCreateScreen},
 },{
   initialRouteName : 'Home',
   contentComponent : CustomDrawerContent,
