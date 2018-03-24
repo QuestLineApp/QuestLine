@@ -10,7 +10,7 @@ class LoginScreen extends Component {
   constructor() {
     super()
     this.state = {
-      myText: ''
+      failText: ''
     }
   }
 
@@ -36,25 +36,18 @@ class LoginScreen extends Component {
 
   onLoginPress = async () => {
     const result = await this.signInWithGoogleAsync()
-    console.log("signed in");
-    console.log(result);
-
-    user = result.user;
-    console.log("\n-----------------LOGIN---------------\n" , user);
-
-    this.setState({myText: 'Please login with Google'})
 
     if(result.type === 'success'){
+      user = result.user;
+      console.log("\n---------------- LOGIN ----------------\n" , user);
+      this.setState({failText: ''})
+      this.forceUpdate(); // make sure the text changes back
       this.props.navigation.navigate('HomeScreen');
     }
     else if(result.cancelled){
-      // this.props.navigation.navigate('LoginScreen');
+      this.setState({failText: 'Please login with Google'})
     }
     else console.log("login failed");
-
-
-    // if there is no result.error or result.cancelled, the user is logged in
-    // do something with the result
   }
 
   render() {
@@ -68,7 +61,7 @@ class LoginScreen extends Component {
       <Text>Welcome to Questline</Text>
       <Text> Please Login </Text>
       <Button block light onPress={this.onLoginPress}><Text>Google Login</Text></Button>
-      <Button block light onPress={() => {
+      <Button block light onPress={() => { //TODO: Remove this button
         user =  {
           "email": undefined,
           "familyName": "Questline",
@@ -77,11 +70,11 @@ class LoginScreen extends Component {
           "name": "Developer Questline",
           "photoUrl": "../assets/DevProfile.jpg",
         };
-        console.log(user);
+        console.log("\n-------------- DEV LOGIN --------------\n" , user);
         this.props.navigation.navigate('HomeScreen')
       }}><Text>Skip to Home</Text></Button>
 
-      <Text>{this.state.myText}</Text>
+      <Text>{this.state.failText}</Text>
 
       </Content>
 
