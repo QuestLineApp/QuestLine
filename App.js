@@ -14,6 +14,8 @@ import { createStore, applyMiddleware, combineReduxers, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 
+user = null;
+
 export default class App extends React.Component {
   render() {
     return <LoginScreen />;
