@@ -4,6 +4,8 @@ import { Image, View, Text, StyleSheet, TextInput, Picker} from 'react-native';
 
 import { Icon, Button, Container, Header, Content, Left } from 'native-base';
 
+import PickerExample from './CatPicker.js'
+
 class QuestCreateScreen extends Component {
   static navigationOptions = {
     drawerIcon: (
@@ -11,8 +13,6 @@ class QuestCreateScreen extends Component {
              style={{height:24, width:24}} />
     )
   }
-	state = {user: ''}
-  updateUser = (user) => { this.setState({ user: user }) }
 
   render() {
     return (
@@ -30,23 +30,11 @@ class QuestCreateScreen extends Component {
         	
 					<Text> New Quest Screen</Text>
 					
-					<TextInput
-          	style={{height: 40}}
-          	placeholder="Quest Name"
-          	onChangeText={(text) => this.setState({text})}
-        	/>
+					<TextInput style={{height: 40}} placeholder="Quest Name" onChangeText={(text) => this.setState({text})} />
 					
-					<TextInput
-						style={{height: 40}}
-						placeholder="Description"
-						onChangeText={(text) => this.setState({text})}
-					/>
+					<TextInput style={{height: 40}} placeholder="Description" onChangeText={(text) => this.setState({text})} />
 					
-					<Picker selectedValue={this.state.language} onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
-  					<Picker.Item label="Java" value="java" />
-  					<Picker.Item label="JavaScript" value="js" />
-					</Picker>
-
+					<PickerExample />
         </Content>
 
       </Container>
