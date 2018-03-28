@@ -8,9 +8,11 @@ import HomeScreen from './HomeScreen';
 
 class LoginScreen extends Component {
   constructor() {
+    const devPhoto = require('../assets/DevProfile.jpg');
     super()
     this.state = {
-      failText: ''
+      failText: '',
+      devPhoto : devPhoto,
     }
   }
 
@@ -61,26 +63,25 @@ class LoginScreen extends Component {
       <Text>Welcome to Questline</Text>
       <Text> Please Login </Text>
       <Button block light onPress={this.onLoginPress}><Text>Google Login</Text></Button>
-      <Button block light onPress={() => { //TODO: Remove this button
-        user =  {
-          "email": undefined,
-          "familyName": "Questline",
-          "givenName": "Developer",
-          "id": "0",
-          "name": "Developer Questline",
-          "photoUrl": "../assets/DevProfile.jpg",
-        };
-        console.log("\n-------------- DEV LOGIN --------------\n" , user);
-        this.props.navigation.navigate('HomeScreen')
-      }}><Text>Skip to Home</Text></Button>
+      user =  {
+        "email": undefined,
+        "familyName": "Questline",
+        "givenName": "Developer",
+        "id": "0",
+        "name": "Developer Questline",
+        "photo": this.state.devPhoto,
+      };
+      console.log("\n-------------- DEV LOGIN --------------\n" , user);
+      this.props.navigation.navigate('HomeScreen')
+    }}><Text>Skip to Home</Text></Button>
 
-      <Text>{this.state.failText}</Text>
+  <Text>{this.state.failText}</Text>
 
-      </Content>
+  </Content>
 
-      </Container>
-    );
-  }
+  </Container>
+);
+}
 }
 
 const LoginScreenStackNav = StackNavigator({
