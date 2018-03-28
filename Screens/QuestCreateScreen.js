@@ -1,6 +1,6 @@
 //https://www.flaticon.com/free-icon/settings_263074
 import React, { Component } from 'react';
-import { AsyncStorage, Image, View, Text, StyleSheet, TextInput, Picker} from 'react-native';
+import { AsyncStorage, Image, View, Text, StyleSheet, TextInput, Picker, KeyboardAvoidingView} from 'react-native';
 
 import { Icon, Button, Container, Header, Content, Left } from 'native-base';
 
@@ -51,31 +51,36 @@ class QuestCreateScreen extends Component {
 
   render() {
     return (
-      <Container>
-        
-				<Header style={{backgroundColor:'#246A73'}}>
-          <Left>
-            <Button transparent>
-              <Icon name='menu' onPress={()=>this.props.navigation.navigate('DrawerOpen')} />
-            </Button>
-          </Left>
-        </Header>
+			<KeyboardAvoidingView
+				style={{flex: 1,backgroundColor: '#ecf0f1'}}
+				behavior="padding">
 
-        <Content contentContainerStyle={{ flex : 1, alignItems : 'center', justifyContent : 'center' }}>
-        	
-					<Text>New Quest Screen</Text>
 					
-					<TextInput style={{height: 40}} placeholder="Quest Name" onChangeText={(text) => this.setState({'questName' : text})} />
-					
-					<TextInput style={{height: 40}} placeholder="Description" onChangeText={(text) => this.setState({'description' : text})} />
+				<Container>
+					<Header style={{backgroundColor:'#246A73'}}>
+						<Left>
+							<Button transparent>
+								<Icon name='menu' onPress={()=>this.props.navigation.navigate('DrawerOpen')} />
+							</Button>
+						</Left>
+					</Header>
 
-					<Button block light onPress={()=> this.showState()}><Text> Log state </Text></Button>
+					<Content contentContainerStyle={{ flex : 1, alignItems : 'center', justifyContent : 'center' }}>
+						
+						<Text>New Quest Screen</Text>
+						
+						<TextInput style={{height: 40, width: 200, textAlign: 'center'}} placeholder="Quest Name" onChangeText={(text) => this.setState({'questName' : text})} />
+						
+						<TextInput style={{height: 40, width:200, textAlign: 'center'}} placeholder="Description" onChangeText={(text) => this.setState({'description' : text})} />
 
-					<Button block light onPress={()=> this.saveQuest()}><Text> Save Quest </Text></Button>
+						<Button block light onPress={()=> this.showState()}><Text> Log state </Text></Button>
 
-        </Content>
+						<Button block light onPress={()=> this.saveQuest()}><Text> Save Quest </Text></Button>
 
-      </Container>
+					</Content>
+
+				</Container>
+			</KeyboardAvoidingView>
     );
   }
 }
