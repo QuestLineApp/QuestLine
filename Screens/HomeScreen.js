@@ -69,7 +69,7 @@ const HomeDrawerNav = DrawerNavigator ({
   Home: { screen : HomeScreen },
   Location: { screen : LocationScreen },
   Settings: { screen : SettingsScreen },
-  New: { screen: QuestCreateScreen},
+  CreateQuest: { screen: QuestCreateScreen},
 },{
   initialRouteName : 'Home',
   contentComponent : CustomDrawerContent,
