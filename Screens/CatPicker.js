@@ -9,10 +9,11 @@ class PickerExample extends Component {
    render() {
       return (
          <View>
-            <Picker selectedValue = {this.state.user} onValueChange = {this.updateUser}>
-               <Picker.Item label = "Steve" value = "steve" />
-               <Picker.Item label = "Ellen" value = "ellen" />
-               <Picker.Item label = "Maria" value = "maria" />
+            <Picker selectedValue = {this.state.user} onValueChange = {this.updateUser} style={{height:30, width:100}}>
+              <Picker.Item label = "Physical" value = "Physical" />
+              <Picker.Item label = "Cultural" value = "Cultural" />
+              <Picker.Item label = "Intellectual" value = "Intellectual" />
+							<Picker.Item label = "Other" value = "Other" />
             </Picker>
             <Text style = {styles.text}>{this.state.user}</Text>
          </View>
@@ -25,6 +26,6 @@ const styles = StyleSheet.create({
    text: {
       fontSize: 30,
       alignSelf: 'center',
-      color: 'red'
+      color: 'green'
    }
 })

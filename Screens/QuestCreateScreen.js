@@ -63,13 +63,11 @@ class QuestCreateScreen extends Component {
 
         <Content contentContainerStyle={{ flex : 1, alignItems : 'center', justifyContent : 'center' }}>
         	
-					<Text> New Quest Screen</Text>
+					<Text>New Quest Screen</Text>
 					
 					<TextInput style={{height: 40}} placeholder="Quest Name" onChangeText={(text) => this.setState({'questName' : text})} />
 					
 					<TextInput style={{height: 40}} placeholder="Description" onChangeText={(text) => this.setState({'description' : text})} />
-
-					
 
 					<Button block light onPress={()=> this.showState()}><Text> Log state </Text></Button>
 
