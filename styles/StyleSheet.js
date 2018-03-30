@@ -5,6 +5,7 @@ var React = require('react-native');
 var {
   StyleSheet,
 } = React;
+//is this getting pulled?
 //RGB of header tab: (36,106,115)
 module.exports = StyleSheet.create({
 
