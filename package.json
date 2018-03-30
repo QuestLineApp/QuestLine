@@ -29,6 +29,8 @@
     "react": "16.2.0",
     "react-native": "^0.52.0",
     "react-native-maps": "^0.20.1",
+    "react-native-pie-chart": "^1.0.13",
+    "react-native-svg-charts": "^4.2.0",
     "react-navigation": "^1.1.2",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",

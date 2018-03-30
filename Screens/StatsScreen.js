@@ -7,7 +7,7 @@ import { Icon, Button, Container, Header, Content, Left } from 'native-base';
 //import style from '../styles/StyleSheet'
 //const style = mystyles
 
-class StatsScreen extends React.PureComponent {
+class StatsScreen extends Component {
   static navigationOptions = {
     drawerIcon: (
       <Image source={require('../assets/statsIcon.png')}
