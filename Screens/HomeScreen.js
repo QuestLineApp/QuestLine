@@ -9,7 +9,7 @@ import { Icon, Button, Container, Body, Header, Content, Left } from 'native-bas
 import SettingsScreen from './SettingsScreen';
 import NotificationsScreen from './NotificationsScreen';
 import LocationScreen from '../Screens/gps';
-import StatsScreen from './StatsScreen'
+//import StatsScreen from './StatsScreen'
 import { MapView } from 'expo';
 //dummy data to test quests
 //real one could have list like this filled in with function that finds all
@@ -133,16 +133,7 @@ class HomeScreen extends Component {
   }
   render() {
 
-  let mview=  <MapView.Marker
-          coordinate={this.state.branchPosition}
-          title={"This is a quest"}
-          description={"Where the big boys work."}
 
-            image={require('../assets/dinner.png')}
-
-          style={{height:4, width:4}}
-          >
-    </MapView.Marker>
     return (
       <Container>
         <Header style={{backgroundColor:'#246A73'}}>
@@ -199,7 +190,7 @@ const HomeDrawerNav = DrawerNavigator ({
   Home: { screen : HomeScreen },
   Location: { screen : LocationScreen },
   Settings: { screen : SettingsScreen },
-  Stats: { screen : StatsScreen },
+  //Stats: { screen : StatsScreen },
 },{
   initialRouteName : 'Home',
   contentComponent : CustomDrawerContent,
