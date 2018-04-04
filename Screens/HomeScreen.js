@@ -7,6 +7,7 @@ import { DrawerNavigator, DrawerItems } from 'react-navigation';
 import { Icon, Button, Container, Body, Header, Content, Left } from 'native-base';
 
 import SettingsScreen from './SettingsScreen';
+import ProfileScreen from './ProfileScreen';
 import NotificationsScreen from './NotificationsScreen';
 import LocationScreen from '../Screens/gps';
 //import StatsScreen from './StatsScreen'
@@ -191,6 +192,7 @@ const HomeDrawerNav = DrawerNavigator ({
   Location: { screen : LocationScreen },
   Settings: { screen : SettingsScreen },
   //Stats: { screen : StatsScreen },
+  Profile: { screen : ProfileScreen },
 },{
   initialRouteName : 'Home',
   contentComponent : CustomDrawerContent,
