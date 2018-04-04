@@ -10,6 +10,8 @@ import SettingsScreen from './SettingsScreen';
 import ProfileScreen from './ProfileScreen';
 import NotificationsScreen from './NotificationsScreen';
 import LocationScreen from '../Screens/gps';
+import QuestCreateScreen from '../Screens/QuestCreateScreen';
+
 import { MapView } from 'expo';
 
 class HomeScreen extends Component {
@@ -45,7 +47,7 @@ class HomeScreen extends Component {
 
       </Container>
     );
-  }
+  }const
 }
 
 const CustomDrawerContent = (props) => (
@@ -68,6 +70,7 @@ const HomeDrawerNav = DrawerNavigator ({
   Home: { screen : HomeScreen },
   Location: { screen : LocationScreen },
   Settings: { screen : SettingsScreen },
+  CreateQuest: { screen: QuestCreateScreen},
   Profile: { screen : ProfileScreen },
 },{
   initialRouteName : 'Home',
