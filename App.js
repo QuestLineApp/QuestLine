@@ -7,6 +7,7 @@ import { Icon, Button, Container, Header, Content, Left } from 'native-base';
 import LoginScreen from './Screens/LoginScreen'
 import HomeScreen from './Screens/HomeScreen'
 import SettingsScreen from './Screens/SettingsScreen'
+import QuestCreateScreen from './Screens/SettingsScreen'
 
 // Redux imports.  We probably won't use all of them.  These are to verify that redux is working.  
 import { Provider } from 'react-redux';
