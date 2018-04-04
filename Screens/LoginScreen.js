@@ -52,6 +52,19 @@ class LoginScreen extends Component {
     else console.log("login failed");
   }
 
+  onDeveloperPress = () => {
+    user =  {
+      "email": undefined,
+      "familyName": "Questline",
+      "givenName": "Developer",
+      "id": "0",
+      "name": "Developer Questline",
+      "photo": this.state.devPhoto,
+    };
+    console.log("\n-------------- DEV LOGIN --------------\n" , user);
+    this.props.navigation.navigate('HomeScreen')
+  }
+
   render() {
     return (
       <Container>
@@ -63,25 +76,14 @@ class LoginScreen extends Component {
       <Text>Welcome to Questline</Text>
       <Text> Please Login </Text>
       <Button block light onPress={this.onLoginPress}><Text>Google Login</Text></Button>
-      user =  {
-        "email": undefined,
-        "familyName": "Questline",
-        "givenName": "Developer",
-        "id": "0",
-        "name": "Developer Questline",
-        "photo": this.state.devPhoto,
-      };
-      console.log("\n-------------- DEV LOGIN --------------\n" , user);
-      this.props.navigation.navigate('HomeScreen')
-    }}><Text>Skip to Home</Text></Button>
+      <Button block light onPress={this.onDeveloperPress}><Text>Skip to Home</Text></Button>
+      <Text>{this.state.failText}</Text>
 
-  <Text>{this.state.failText}</Text>
+      </Content>
 
-  </Content>
-
-  </Container>
-);
-}
+      </Container>
+    );
+  }
 }
 
 const LoginScreenStackNav = StackNavigator({

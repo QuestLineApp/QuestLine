@@ -29,6 +29,7 @@ class ProfileScreen extends Component {
       }}>
       <Text>{user.name}</Text>
       <Image source={{uri: user.photoUrl}} style={{width: 40, height: 40}} />
+      <Image source={{uri: '../assets/DevProfile.jpg'}} style={{width: 40, height: 40}} />
       </Content>
       </Container>
     );
