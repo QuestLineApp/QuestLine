@@ -1,4 +1,4 @@
-//https://www.flaticon.com/free-icon/settings_263074
+//https://www.flaticon.com/free-icon/edit_263062
 import React, { Component } from 'react';
 import { AsyncStorage, Image, View, Text, StyleSheet, TextInput, Picker, KeyboardAvoidingView} from 'react-native';
 
@@ -41,10 +41,9 @@ class QuestCreateScreen extends Component {
     console.log(this.state);
   }
 
-
   static navigationOptions = {
     drawerIcon: (
-      <Image source={require('../assets/settingsIcon.png')}
+      <Image source={require('../assets/create.png')}
       style={{height:24, width:24}} />
     )
   }
