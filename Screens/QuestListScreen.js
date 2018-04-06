@@ -13,12 +13,12 @@ class QuestListScreen extends Component {
 
   constructor(props){
     super(props);
-    AsyncStorage.getItem('localQuestList').then( value => {
-      this.setState({'localQuestList': JSON.parse(value) });
-      console.log('mountin and set: ' + this.state.localQuestList);
+		AsyncStorage.getItem('localQuestList').then( value => {
+			this.setState({'localQuestList': JSON.parse(value) });
+			console.log('mountin and set: ' + this.state.localQuestList);
       this.ree = true;
       this.forceUpdate();
-    });
+		});
     console.log('construct');
   }
 
@@ -26,62 +26,85 @@ class QuestListScreen extends Component {
     this.setState({'localQuestList': {'list': []}});
   }
 
-  saveQuestList() {
-    AsyncStorage.setItem('localQuestList',JSON.stringify(this.state.localQuestList));
-  }
+	saveQuestList() {
+		AsyncStorage.setItem('localQuestList',JSON.stringify(this.state.localQuestList));
+	}
   deleteQuest(idx) {
     this.state.localQuestList.list.splice(idx,1);
     this.saveQuestList();
     this.forceUpdate();
   }
 
-  editQuest() {
-
+  getDifficulty(item)
+  {
+    switch(item.difficulty){
+      case 0:
+        return 'Easy';
+        break;
+      case 1:
+        return 'Medium';
+        break;
+      case 2:
+        return 'Hard';
+        break;
+      case 3:
+        return 'Extreme';
+        break;
+    }
   }
 
   getQuests() {
     let quests = this.state.localQuestList.list.map(( item, idx ) =>
-      {
-        return(
-          <View key={idx} style = {{height:100,width:'90%',backgroundColor:'#26A69A',alignItems:'center',alignSelf:'center',margin: 4}}>
+    {
+      return(
+          <View key={idx} style = {{height:200,width:'90%',backgroundColor:'#26A69A',alignItems:'center',alignSelf:'center',margin: 4}}>
             <Text style= {{'fontWeight': 'bold'}}> {item.name}</Text>
-            <Text numberOfLines={2}> {item.description}</Text>
+            <ScrollView style={{backgroundColor:'blue', width:'90%', position:'absolute','top':'10%',bottom:'20%'}}>
+                <Text style= {{flex:1, alignSelf:'center', fontWeight:'bold'}}>Description</Text>
+                <Text style= {{flex:1, alignSelf:'center'}}> {item.description}</Text>
+                <Text style= {{flex:1, alignSelf:'center', fontWeight:'bold'}}>Type</Text>
+                <Text style= {{flex:1, alignSelf:'center'}}> {item.type}</Text>
+                <Text style= {{flex:1, alignSelf:'center', fontWeight:'bold'}}>Difficulty</Text>
+                <Text style= {{flex:1, alignSelf:'center'}}> {this.getDifficulty(item)}</Text>
+                <Text style= {{flex:1, alignSelf:'center', fontWeight:'bold'}}>Location</Text>
+
+            </ScrollView>
             <View style={{
               height:20,
-                position:'absolute',
-                bottom:10,
-                flex:1,
-                flexDirection: 'row',
-                width:'80%',
+              position:'absolute',
+              bottom:10,
+              flex:1, 
+              flexDirection: 'row', 
+              width:'80%', 
             }}>
-              <View style={{flex:1}}>
-                <Button block style = {{
-                  height:20,
-                    position:'absolute',
-                    bottom:0,
-                    backgroundColor:'#ffd150',
-                    width:'90%',
-                    alignSelf:'center'}}
+            <View style={{flex:1}}>
+              <Button block style = {{
+                height:20,
+                position:'absolute',
+                bottom:0,
+                backgroundColor:'#ffd150',
+                width:'90%', 
+                alignSelf:'center'}} 
                 onPress={()=> this.editQuest(idx)}>
-                  <Text> Edit </Text>
-                </Button>
-              </View>
-              <View style={{flex:1}}>
-                <Button block style = {{
-                  height:20,
-                    position:'absolute',
-                    bottom:0,
-                    backgroundColor:'#cc5050',
-                    width:'90%',
-                    alignSelf:'center',
+                <Text> Edit </Text>
+              </Button>
+            </View>
+            <View style={{flex:1}}>
+              <Button block style = {{
+                height:20,
+                position:'absolute',
+                bottom:0,
+                backgroundColor:'#cc5050',
+                width:'90%', 
+                alignSelf:'center',
                 }} onPress={()=> this.deleteQuest(idx)}>
-                  <Text> Delete </Text>
-                </Button>
-              </View>
+                <Text> Delete </Text>
+              </Button>
+            </View>
             </View>
           </View>
-        );
-      });
+      );
+    });
     return quests;
   }
 
@@ -91,15 +114,15 @@ class QuestListScreen extends Component {
     }
     console.log(this.state.localQuestList);
     return (
-      <Container>
-        <Header style={{backgroundColor:'#246A73'}}>
-          <Left>
-            <Button transparent>
-              <Icon name='menu' onPress={()=>this.props.navigation.navigate('DrawerOpen')} />
-            </Button>
-          </Left>
-        </Header>
-        <Content contentContainerStyle= {{
+    <Container>
+      <Header style={{backgroundColor:'#246A73'}}>
+        <Left>
+          <Button transparent>
+            <Icon name='menu' onPress={()=>this.props.navigation.navigate('DrawerOpen')} />
+          </Button>
+        </Left>
+      </Header>
+      <Content contentContainerStyle= {{
           flex: 1,
             alignItems: 'center',
             justifyContent : 'center',
