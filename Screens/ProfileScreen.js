@@ -8,27 +8,29 @@ class ProfileScreen extends Component {
   static navigationOptions = {
     drawerIcon: (
       <Image source={require('../assets/profileIcon.png')}
-             style={{height:24, width:24}} />
+      style={{height:24, width:24}} />
     )
   }
 
   render() {
     return (
       <Container>
-        <Header style={{backgroundColor:'#246A73'}}>
-          <Left>
-            <Button transparent>
-              <Icon name='menu' onPress={()=>this.props.navigation.navigate('DrawerOpen')} />
-            </Button>
-          </Left>
-        </Header>
-        <Content contentContainerStyle={{
-          flex : 1,
+      <Header style={{backgroundColor:'#246A73'}}>
+      <Left>
+      <Button transparent>
+      <Icon name='menu' onPress={()=>this.props.navigation.navigate('DrawerOpen')} />
+      </Button>
+      </Left>
+      </Header>
+      <Content contentContainerStyle={{
+        flex : 1,
           alignItems : 'center',
           justifyContent : 'center'
-        }}>
-        <Text>{user.name}</Text>
-        </Content>
+      }}>
+      <Image source={{uri: user.photoUrl}} style={{width: 75, height: 100}} />
+      <Text>{user.name}</Text>
+      <Text>{user.email}</Text>
+      </Content>
       </Container>
     );
   }

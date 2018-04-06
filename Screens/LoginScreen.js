@@ -10,7 +10,7 @@ class LoginScreen extends Component {
   constructor() {
     super()
     this.state = {
-      failText: ''
+      failText: '',
     }
   }
 
@@ -50,6 +50,19 @@ class LoginScreen extends Component {
     else console.log("login failed");
   }
 
+  onDeveloperPress = () => {
+    user =  {
+      "email": undefined,
+      "familyName": "Questline",
+      "givenName": "Developer",
+      "id": "0",
+      "name": "Developer Questline",
+      "photoUrl": "https://openclipart.org/image/2400px/svg_to_png/261876/Faceless-Man-Avatar.png",
+    };
+    console.log("\n-------------- DEV LOGIN --------------\n" , user);
+    this.props.navigation.navigate('HomeScreen')
+  }
+
   render() {
     return (
       <Container>
@@ -61,19 +74,7 @@ class LoginScreen extends Component {
       <Text>Welcome to Questline</Text>
       <Text> Please Login </Text>
       <Button block light onPress={this.onLoginPress}><Text>Google Login</Text></Button>
-      <Button block light onPress={() => { //TODO: Remove this button
-        user =  {
-          "email": undefined,
-          "familyName": "Questline",
-          "givenName": "Developer",
-          "id": "0",
-          "name": "Developer Questline",
-          "photoUrl": "../assets/DevProfile.jpg",
-        };
-        console.log("\n-------------- DEV LOGIN --------------\n" , user);
-        this.props.navigation.navigate('HomeScreen')
-      }}><Text>Skip to Home</Text></Button>
-
+      <Button block light onPress={this.onDeveloperPress}><Text>Skip to Home</Text></Button>
       <Text>{this.state.failText}</Text>
 
       </Content>
