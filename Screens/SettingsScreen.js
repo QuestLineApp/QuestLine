@@ -1,10 +1,11 @@
 //https://www.flaticon.com/free-icon/settings_263074
 import React, { Component } from 'react';
-import { Image, View, Text, StyleSheet } from 'react-native';
+import { AsyncStorage, Image, View, Text, StyleSheet } from 'react-native';
 
 import { Icon, Button, Container, Header, Content, Left } from 'native-base';
 
 class SettingsScreen extends Component {
+
   static navigationOptions = {
     drawerIcon: (
       <Image source={require('../assets/settingsIcon.png')}
