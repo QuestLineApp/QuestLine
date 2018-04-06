@@ -188,13 +188,11 @@ const CustomDrawerContent = (props) => (
 )
 
 const HomeDrawerNav = DrawerNavigator ({
-  Home: { screen : HomeScreen },
-  Location: { screen : LocationScreen },
-  Settings: { screen : SettingsScreen },
-
-  CreateQuest: { screen: QuestCreateScreen},
-
-  Profile: { screen : ProfileScreen },
+  Home:        { screen : HomeScreen },
+  Location:    { screen : LocationScreen },
+  Settings:    { screen : SettingsScreen },
+  CreateQuest: { screen : QuestCreateScreen},
+  Profile:     { screen : ProfileScreen },
 },{
   initialRouteName : 'Home',
   contentComponent : CustomDrawerContent,
