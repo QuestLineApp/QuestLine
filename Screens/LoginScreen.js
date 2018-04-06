@@ -8,11 +8,9 @@ import HomeScreen from './HomeScreen';
 
 class LoginScreen extends Component {
   constructor() {
-    const devPhoto = require('../assets/DevProfile.jpg');
     super()
     this.state = {
       failText: '',
-      devPhoto : devPhoto,
     }
   }
 
@@ -59,7 +57,7 @@ class LoginScreen extends Component {
       "givenName": "Developer",
       "id": "0",
       "name": "Developer Questline",
-      "photo": this.state.devPhoto,
+      "photoUrl": "https://openclipart.org/image/2400px/svg_to_png/261876/Faceless-Man-Avatar.png",
     };
     console.log("\n-------------- DEV LOGIN --------------\n" , user);
     this.props.navigation.navigate('HomeScreen')

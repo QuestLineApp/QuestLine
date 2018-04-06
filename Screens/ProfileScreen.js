@@ -27,9 +27,9 @@ class ProfileScreen extends Component {
           alignItems : 'center',
           justifyContent : 'center'
       }}>
+      <Image source={{uri: user.photoUrl}} style={{width: 75, height: 100}} />
       <Text>{user.name}</Text>
-      <Image source={{uri: user.photoUrl}} style={{width: 40, height: 40}} />
-      <Image source={{uri: '../assets/DevProfile.jpg'}} style={{width: 40, height: 40}} />
+      <Text>{user.email}</Text>
       </Content>
       </Container>
     );
