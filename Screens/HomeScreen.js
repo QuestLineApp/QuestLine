@@ -10,7 +10,9 @@ import SettingsScreen from './SettingsScreen';
 import ProfileScreen from './ProfileScreen';
 import NotificationsScreen from './NotificationsScreen';
 import LocationScreen from '../Screens/gps';
-//import StatsScreen from './StatsScreen'
+import QuestCreateScreen from '../Screens/QuestCreateScreen';
+import QuestListScreen from './QuestListScreen';
+import StatsScreen from './StatsScreen';
 import { MapView } from 'expo';
 //dummy data to test quests
 //real one could have list like this filled in with function that finds all
@@ -53,6 +55,16 @@ const questData=[
     latitude: 41.7418982169205,
     longitude: -111.81436841058003,
     type: 4,
+    pos: 41,
+    value: 8
+  },
+  {
+    key:5,
+    title: "Education",
+    description: "Lets go learn something!",
+    latitude: 41.7538982169205,
+    longitude: -111.79436841058003,
+    type: 2,
     pos: 41,
     value: 8
   }
@@ -121,6 +133,24 @@ function typeOfImage(props){
 
 class HomeScreen extends Component {
 
+  componentDidMount() {
+    this.watchId = navigator.geolocation.watchPosition(
+      (position) => {
+        this.setState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          error: null,
+        });
+      },
+      (error) => this.setState({ error: error.message }),
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000, distanceFilter: 10 },
+    );
+  }
+
+  componentWillUnmount() {
+    navigator.geolocation.clearWatch(this.watchId);
+  }
+
   state = {
 
   //The this marks Accra
@@ -149,13 +179,14 @@ class HomeScreen extends Component {
         <MapView
         style={{ flex: 1 }}
         initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
+          latitude: this.state.latitude,
+          longitude: this.state.longitude,
           latitudeDelta: 0.1844,
           longitudeDelta: 0.0842,
         }}
         showsUserLocation={true}
         followsUserLocation={true}
+        onPanDrag={e=>console.log(e.nativeEvent)}
       >
       {questData.map(function(name){
                     const loc=name.value
@@ -168,7 +199,7 @@ class HomeScreen extends Component {
 
       </Container>
     );
-  }
+  }const
 }
 
 const CustomDrawerContent = (props) => (
@@ -191,8 +222,10 @@ const HomeDrawerNav = DrawerNavigator ({
   Home: { screen : HomeScreen },
   Location: { screen : LocationScreen },
   Settings: { screen : SettingsScreen },
-  //Stats: { screen : StatsScreen },
+  CreateQuest: { screen: QuestCreateScreen},
+  Stats: {screen: StatsScreen},
   Profile: { screen : ProfileScreen },
+  ViewQuests: {screen: QuestListScreen},
 },{
   initialRouteName : 'Home',
   contentComponent : CustomDrawerContent,
