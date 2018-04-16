@@ -12,6 +12,7 @@ import NotificationsScreen from './NotificationsScreen';
 import LocationScreen from '../Screens/gps';
 import QuestCreateScreen from '../Screens/QuestCreateScreen';
 import QuestListScreen from './QuestListScreen';
+import QuestCompletedScreen from './QuestCompletedScreen';
 import { MapView } from 'expo';
 //dummy data to test quests
 //real one could have list like this filled in with function that finds all
@@ -214,6 +215,7 @@ const HomeDrawerNav = DrawerNavigator ({
   CreateQuest: { screen: QuestCreateScreen},
   Profile: { screen : ProfileScreen },
   ViewQuests: {screen: QuestListScreen},
+  'View Completed Quests': {screen:QuestCompletedScreen},
 },{
   initialRouteName : 'Home',
   contentComponent : CustomDrawerContent,

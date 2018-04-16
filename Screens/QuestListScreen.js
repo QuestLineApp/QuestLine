@@ -29,8 +29,15 @@ class QuestListScreen extends Component {
 	saveQuestList() {
 		AsyncStorage.setItem('localQuestList',JSON.stringify(this.state.localQuestList));
 	}
+
   deleteQuest(idx) {
     this.state.localQuestList.list.splice(idx,1);
+    this.saveQuestList();
+    this.forceUpdate();
+  }
+
+  completeQuest(idx) {
+    this.state.localQuestList.list[idx].complete = true;
     this.saveQuestList();
     this.forceUpdate();
   }
@@ -56,6 +63,7 @@ class QuestListScreen extends Component {
   getQuests() {
     let quests = this.state.localQuestList.list.map(( item, idx ) =>
     {
+      if(item.complete) return;
       return(
           <View key={idx} style = {{height:200,width:'90%',backgroundColor:'#26A69A',alignItems:'center',alignSelf:'center',margin: 4}}>
             <Text style= {{'fontWeight': 'bold'}}> {item.name}</Text>
@@ -99,6 +107,18 @@ class QuestListScreen extends Component {
                 alignSelf:'center',
                 }} onPress={()=> this.deleteQuest(idx)}>
                 <Text> Delete </Text>
+              </Button>
+            </View>
+            <View style={{flex:1}}>
+              <Button block style = {{
+                height:20,
+                position:'absolute',
+                bottom:0,
+                backgroundColor:'#50cc50',
+                width:'90%', 
+                alignSelf:'center',
+                }} onPress={()=> this.completeQuest(idx)}>
+                <Text> Complete </Text>
               </Button>
             </View>
             </View>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { AsyncStorage, View, Text, StyleSheet } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { Icon, Button, Container, Header, Content, Left } from 'native-base';
 import Expo from 'expo'
@@ -33,6 +33,26 @@ class LoginScreen extends Component {
     }
   }
 
+  async loadUser() {
+    let value = await AsyncStorage.getItem(user.id);
+    if(value != null) {
+      user = JSON.parse(value);
+      console.log('loaded user: ' + user.id);
+      console.log(user);
+    }
+    else {
+      console.log('set new user: ' + user.id);
+      user.stats = {
+        totalCompleted: 0,
+        physical: 0,
+        cultural: 0,
+        academic: 0,
+        other: 0,
+      }
+      AsyncStorage.setItem(user.id, JSON.stringify(user));
+    }
+  }
+
 
   onLoginPress = async () => {
     const result = await this.signInWithGoogleAsync()
@@ -42,6 +62,7 @@ class LoginScreen extends Component {
       console.log("\n---------------- LOGIN ----------------\n" , user);
       this.setState({failText: ''})
       this.forceUpdate(); // make sure the text changes back
+      this.loadUser(user.id);
       this.props.navigation.navigate('HomeScreen');
     }
     else if(result.cancelled){
