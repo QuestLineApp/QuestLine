@@ -1,6 +1,6 @@
 //https://www.flaticon.com/free-icon/home_263115#term=home&page=1&position=1
 import React, { Component } from 'react';
-import { Image, AsyncStorage, View, Text, StyleSheet } from 'react-native';
+import { Alert, Image, AsyncStorage, View, Text, StyleSheet } from 'react-native';
 
 import { TabNavigator } from 'react-navigation';
 import { DrawerNavigator, DrawerItems } from 'react-navigation';
@@ -15,6 +15,7 @@ import QuestListScreen from './QuestListScreen';
 import { MapView } from 'expo';
 
 const type = Object.freeze({"Physical":1, "Cultural":2, "Academic":3, "Other":4});
+const difficulty = Object.freeze(["Easy", "Medium", "Hard", "Extreme"]);
 
 questData = []
 
@@ -35,45 +36,43 @@ function typeOfImage(props){
     description = {props.description}
     image = {require('../assets/boots.png')}
     //TODO When ready, this can be used to navigate to the quest's page
-    onCalloutPress = {
-      () => alert("yaaayyy")
-    }
+    onCalloutPress = { () => Alert.alert(props.title,props.description) }
     style = {{height:4, width:4}}
       >
       </MapView.Marker>
   }
-  else if (props.type == 1){ // cultural
+  else if (props.type == 2){ // cultural
     return <MapView.Marker
     key = {props.key}
     coordinate = {tester}
     title = {props.title}
     description = {props.description}
     image = {require('../assets/music-player.png')}
-
+    onCalloutPress = { () => Alert.alert(props.title,props.description) }
     style = {{height:4, width:4}}
       >
       </MapView.Marker>
   }
-  else if (props.type == 2){ // academic
+  else if (props.type == 3){ // academic
     return <MapView.Marker
     key = {props.key}
     coordinate = {tester}
     title = {props.title}
     description = {props.description}
     image = {require('../assets/bookshelf.png')}
-
+    onCalloutPress = { () => Alert.alert(props.title,props.description) }
     style = {{height:4, width:4}}
       >
       </MapView.Marker>
   }
-  else if (props.type == 3){ // other
+  else if (props.type == 4){ // other
     return <MapView.Marker
     key = {props.key}
     coordinate = {tester}
     title = {props.title}
     description = {props.description}
     image = {require('../assets/dinner.png')}
-
+    onCalloutPress = { () => Alert.alert(props.title,props.description) }
     style = {{height:4, width:4}}
       >
       </MapView.Marker>
@@ -95,7 +94,8 @@ class HomeScreen extends Component {
         questData.push({
           key:i,
           title: list[i].name,
-          description: list[i].description,
+          description: list[i].description + "\nType:          " + list[i].type +
+          "\nDifficulty:   " + difficulty[list[i].difficulty],
           latitude: list[i].latitude,
           longitude: list[i].longitude,
           type: type[list[i].type],
