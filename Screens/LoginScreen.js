@@ -107,8 +107,14 @@ class LoginScreen extends Component {
 }
 
 const LoginScreenStackNav = StackNavigator({
-  LoginScreen: { screen : LoginScreen },
-  HomeScreen: { screen : HomeScreen },
+  LoginScreen: { screen : LoginScreen,
+        navigationOptions: {
+          header: null,
+        }},  
+  HomeScreen: { screen : HomeScreen,
+        navigationOptions: {
+          header: null,
+        } },
 });
 
 export default LoginScreenStackNav;
