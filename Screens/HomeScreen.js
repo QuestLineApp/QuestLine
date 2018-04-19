@@ -168,7 +168,6 @@ class HomeScreen extends Component {
       }}
       showsUserLocation={true}
       followsUserLocation={true}
-      onPanDrag={e=>console.log(e.nativeEvent)}
       >
       {questData.map(function(name){
         const loc=name.value

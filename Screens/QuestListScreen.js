@@ -30,6 +30,10 @@ class QuestListScreen extends Component {
     AsyncStorage.setItem('localQuestList',JSON.stringify(this.state.localQuestList));
   }
 
+  editQuest() {
+    console.log('editing quest!');
+  }
+
   deleteQuest(idx) {
     this.state.localQuestList.list.splice(idx,1);
     this.saveQuestList();
