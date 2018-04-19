@@ -12,6 +12,7 @@ import NotificationsScreen from './NotificationsScreen';
 import LocationScreen from '../Screens/gps';
 import QuestCreateScreen from '../Screens/QuestCreateScreen';
 import QuestListScreen from './QuestListScreen';
+import QuestCompletedScreen from './QuestCompletedScreen';
 import StatsScreen from './StatsScreen';
 import CommunityScreen from './CommunityScreen';
 import { MapView } from 'expo';
@@ -214,6 +215,7 @@ const HomeDrawerNav = DrawerNavigator ({
   Stats: {screen: StatsScreen},
   Profile: { screen : ProfileScreen },
   ViewQuests: {screen: QuestListScreen},
+  'View Completed Quests': {screen:QuestCompletedScreen},
   Community: {screen: CommunityScreen},
 },{
   initialRouteName : 'Home',

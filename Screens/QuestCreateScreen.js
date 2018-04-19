@@ -40,6 +40,7 @@ class QuestCreateScreen extends Component {
       'difficulty': this.state.difficulty,
       'latitude': this.state.questCoords.latitude,
       'longitude': this.state.questCoords.longitude,
+      'complete': false,
     }
     console.log(newQuest);
     let questList = this.state.localQuestList;
