@@ -1,8 +1,11 @@
 //https://www.flaticon.com/free-icon/settings_263074
 import React, { Component } from 'react';
 import { Image, View, Text, StyleSheet } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
 import { Icon, Button, Container, Header, Content, Left } from 'native-base';
+import StatsScreen from './StatsScreen';
+
 
 class ProfileScreen extends Component {
   static navigationOptions = {
@@ -11,7 +14,9 @@ class ProfileScreen extends Component {
       style={{height:24, width:24}} />
     )
   }
-
+  onStatsPress = () => {
+    this.props.navigation.navigate('StatsScreen')
+  }
   render() {
     return (
       <Container>
@@ -30,10 +35,24 @@ class ProfileScreen extends Component {
       <Image source={{uri: user.photoUrl}} style={{width: 75, height: 100}} />
       <Text>{user.name}</Text>
       <Text>{user.email}</Text>
+      <Button block light onPress={this.onStatsPress}><Text>View stats</Text></Button>
       </Content>
       </Container>
     );
   }
 }
+const navigationOptions = {header: null };
 
-export default ProfileScreen;
+
+const profScreenStackNav = StackNavigator({
+  ProfileScreen: { screen : ProfileScreen,
+        navigationOptions: {
+          header: null,
+        } },
+  StatsScreen: { screen : StatsScreen,
+    navigationOptions: {
+      header: null,
+    } },
+});
+
+export default profScreenStackNav;

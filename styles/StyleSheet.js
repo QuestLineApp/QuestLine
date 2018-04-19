@@ -33,6 +33,11 @@ module.exports = StyleSheet.create({
         fontSize: 35,
         color: 'white'
       },
+      statsDivsAcademic: {
+        backgroundColor: 'rgba(111, 159, 237,.6)',
+        fontSize: 35,
+        color: 'white'
+      },
       statsDivsDistance: {
         backgroundColor: 'rgba(15, 70, 158,.6)',
         fontSize: 35,
@@ -45,12 +50,17 @@ module.exports = StyleSheet.create({
       },
       backgroundImage: {
         flex: 1,
-        justifyContent: 'space-between',
         alignItems: 'center',
         justifyContent: 'center'
         // width: null,
         // height: null,
         //resizeMode:  'stretch' //or 'cover'
+      },
+
+      //////CommunityStyles
+      questsDiv: {
+        fontSize: 30,
+        color: 'white'
       },
 
 });

@@ -12,6 +12,8 @@ import NotificationsScreen from './NotificationsScreen';
 import LocationScreen from '../Screens/gps';
 import QuestCreateScreen from '../Screens/QuestCreateScreen';
 import QuestListScreen from './QuestListScreen';
+import StatsScreen from './StatsScreen';
+import CommunityScreen from './CommunityScreen';
 import { MapView } from 'expo';
 
 const type = Object.freeze({"Physical":1, "Cultural":2, "Academic":3, "Other":4});
@@ -209,8 +211,10 @@ const HomeDrawerNav = DrawerNavigator ({
   Location: { screen : LocationScreen },
   Settings: { screen : SettingsScreen },
   CreateQuest: { screen: QuestCreateScreen},
+  Stats: {screen: StatsScreen},
   Profile: { screen : ProfileScreen },
   ViewQuests: {screen: QuestListScreen},
+  Community: {screen: CommunityScreen},
 },{
   initialRouteName : 'Home',
   contentComponent : CustomDrawerContent,
