@@ -43,6 +43,7 @@ class LoginScreen extends Component {
     else {
       console.log('set new user: ' + user.id);
       user.stats = {
+        experience: 0,
         totalCompleted: 0,
         physical: 0,
         cultural: 0,
