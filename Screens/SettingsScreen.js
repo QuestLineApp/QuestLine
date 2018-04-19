@@ -7,40 +7,60 @@ import { Icon, Button, Container, Header, Content, Left } from 'native-base';
 class SettingsScreen extends Component {
 
   constructor(props) {
+    console.log("1");
     super(props);
+    console.log("2");
     AsyncStorage.getItem('users').then( value => {
-      let users = JSON.parse(value);
-      if(!users) users = {};
-      if(users[user.id]) {
-        this.setState({"givenName" : users[user.id].givenName});
-        this.setState({"familyName" : users[user.id].familyName});
-        this.setState({"email" : users[user.id].email});
-        this.setState({"culture_checked" : users[user.id].culture_checked});
-        this.setState({"physical_checked" : users[user.id].physical_checked});
-        this.setState({"food_checked" : users[user.id].food_checked});
-        this.setState({"academic_checked" : users[user.id].academic_checked});
-        console.log(this.state);
-      } else {
-        this.setState({"givenName" : user.givenName});
-        this.setState({"familyName" : user.familyName});
-        this.setState({"email" : (user.email) ? user.email : "no email"});
-        this.setState({"culture_checked" : true});
-        this.setState({"physical_checked" : true});
-        this.setState({"food_checked" : true});
-        this.setState({"academic_checked" : true});
-        console.log(this.state);
+      // let users = JSON.parse(value);
+    console.log("3");
+      let users
+    console.log("4");
+      if(!users){
+    console.log("5");
+        console.log('users was null');
+    console.log("6");
+        users = {};
+    console.log("7");
       }
+    console.log("8");
+      console.log(JSON.stringify(users));
+    console.log("9");
+      if(users[user.id]) {
+    console.log("10");
+        this.state = {"user" : users[user.id]};
+    console.log("11");
+      } else {
+    console.log("12");
+        let newUser = {
+          givenName : user.givenName,
+          familyName : user.familyName,
+          email : (user.email) ? user.email : "no email",
+          filters : {
+            culture_checked : true,
+            physical_checked : true,
+            food_checked : true,
+            academic_checked : true,
+          }
+        }
+        this.state = {"user" : newUser};
+      }
+      console.log(this.state);
     });
   }
 
   componentWillMount() {
-    this.setState({"givenName" : ""});
-    this.setState({"familyName" : ""});
-    this.setState({"email" : ""});
-    this.setState({"culture_checked" : false});
-    this.setState({"physical_checked" : false});
-    this.setState({"food_checked" : false});
-    this.setState({"academic_checked" : false});
+    let blank = {
+      givenName : "",
+      familyName : "",
+      email : "",
+      filters : {
+        culture_checked : true,
+        physical_checked : true,
+        food_checked : true,
+        academic_checked : true,
+      }
+    }
+    this.setState("user" : blank);
   }
 
   save() {
@@ -51,15 +71,7 @@ class SettingsScreen extends Component {
       {
         let users = JSON.parse(value);
         if(!users) users = {};
-        users[user.id] = {
-          givenName : this.state.givenName,
-          familyName : this.state.familyName,
-          email : this.state.email,
-          culture_checked : this.state.culture_checked,
-          physical_checked : this.state.physical_checked,
-          food_checked : this.state.food_checked,
-          academic_checked : this.state.academic_checked,
-        }
+        users[user.id] = this.state.user;
         AsyncStorage.setItem('users',JSON.stringify(users));
         console.log('users ' + JSON.stringify(users));
       });
@@ -110,25 +122,25 @@ class SettingsScreen extends Component {
               <CheckBox
               title='Culture'
               checked={this.state.culture_checked}
-              onPress={() => this.setState({'culture_checked': !this.state.culture_checked})}
+              onPress={() => this.setState({'culture_checked': !this.state.user.filters.culture_checked})}
               />
 
               <CheckBox
               title='Physical'
               checked={this.state.physical_checked}
-              onPress={() => this.setState({'physical_checked': !this.state.physical_checked})}
+              onPress={() => this.setState({'physical_checked': !this.state.user.filters.physical_checked})}
               />
 
               <CheckBox
               title='Food'
               checked={this.state.food_checked}
-              onPress={() => this.setState({'food_checked': !this.state.food_checked})}
+              onPress={() => this.setState({'food_checked': !this.state.user.filters.food_checked})}
               />
 
               <CheckBox
               title='Academic'
               checked={this.state.academic_checked}
-              onPress={() => this.setState({'academic_checked': !this.state.academic_checked})}
+              onPress={() => this.setState({'academic_checked': !this.state.user.filters.academic_checked})}
               />
 
             </View>
