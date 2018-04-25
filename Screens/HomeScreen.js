@@ -9,7 +9,6 @@ import { Icon, Button, Container, Body, Header, Content, Left } from 'native-bas
 import SettingsScreen from './SettingsScreen';
 import ProfileScreen from './ProfileScreen';
 import NotificationsScreen from './NotificationsScreen';
-import LocationScreen from '../Screens/gps';
 import QuestCreateScreen from '../Screens/QuestCreateScreen';
 import QuestListScreen from './QuestListScreen';
 import QuestCompletedScreen from './QuestCompletedScreen';
@@ -208,12 +207,11 @@ const CustomDrawerContent = (props) => (
 
 const HomeDrawerNav = DrawerNavigator ({
   Home: { screen : HomeScreen },
-  Location: { screen : LocationScreen },
   Settings: { screen : SettingsScreen },
-  CreateQuest: { screen: QuestCreateScreen},
+  'Create Quest': { screen: QuestCreateScreen},
   Stats: {screen: StatsScreen},
   Profile: { screen : ProfileScreen },
-  ViewQuests: {screen: QuestListScreen},
+  'View Quests': {screen: QuestListScreen},
   'View Completed Quests': {screen:QuestCompletedScreen},
   Community: {screen: CommunityScreen},
 },{

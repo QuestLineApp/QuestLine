@@ -135,8 +135,6 @@ class QuestCreateScreen extends Component {
               />
           </MapView>
 
-          <Button block light onPress={()=> this.showState()}><Text> Log state </Text></Button>
-
           <Button block light onPress={()=> this.saveQuest()}><Text> Save Quest </Text></Button>
 
         </Content>
