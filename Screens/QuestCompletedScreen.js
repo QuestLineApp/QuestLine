@@ -14,10 +14,19 @@ class QuestCompletedScreen extends Component {
   constructor(props){
     super(props);
 		AsyncStorage.getItem('localQuestList').then( value => {
-			this.setState({'localQuestList': JSON.parse(value) });
-			console.log('mountin and set: ' + this.state.localQuestList);
-      this.ree = true;
-      this.forceUpdate();
+      if(value) {
+        this.setState({'localQuestList': JSON.parse(value) });
+        console.log('mountin and set: ' + this.state.localQuestList);
+        this.ree = true;
+        this.forceUpdate();
+      }
+      else {
+        this.setState({'localQuestList': { 'list': [] } });
+        console.log('created new quest list');
+        this.ree = true;
+        this.forceUpdate();
+      }
+
 		});
     console.log('construct');
   }
