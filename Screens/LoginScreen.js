@@ -82,7 +82,10 @@ class LoginScreen extends Component {
       "photoUrl": "https://openclipart.org/image/2400px/svg_to_png/261876/Faceless-Man-Avatar.png",
     };
     console.log("\n-------------- DEV LOGIN --------------\n" , user);
-    this.props.navigation.navigate('HomeScreen')
+    this.loadUser(user.id);
+    this.props.navigation.navigate('HomeScreen');
+    AsyncStorage.clear();
+
   }
 
   render() {

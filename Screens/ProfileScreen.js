@@ -8,6 +8,15 @@ import StatsScreen from './StatsScreen';
 
 
 class ProfileScreen extends Component {
+
+  constructor(props) {
+    super(props);
+    //if(typeof(user.stats.experience) == 'undefined') {
+      console.log(user);
+      //user.stats.experience = 0;
+    //}
+  }
+
   static navigationOptions = {
     drawerIcon: (
       <Image source={require('../assets/profileIcon.png')}
@@ -35,6 +44,7 @@ class ProfileScreen extends Component {
       <Image source={{uri: user.photoUrl}} style={{width: 75, height: 100}} />
       <Text>{user.name}</Text>
       <Text>{user.email}</Text>
+      <Text>Experience:{user.stats.experience}</Text>
       <Button block light onPress={this.onStatsPress}><Text>View stats</Text></Button>
       </Content>
       </Container>
