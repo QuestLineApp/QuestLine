@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { AsyncStorage, View, Text, StyleSheet } from 'react-native';
+import { AsyncStorage, View, Text, StyleSheet,ImageBackground} from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import { Icon, Button, Container, Header, Content, Left } from 'native-base';
+import { Icon, Container ,Button,Header, Content, Left } from 'native-base';
+import { LinearGradient } from 'expo';
 import Expo from 'expo'
 
 import HomeScreen from './HomeScreen';
@@ -91,19 +92,48 @@ class LoginScreen extends Component {
   render() {
     return (
       <Container>
+      <ImageBackground source={require('../assets/QuestMarker.jpg')}
+      style={styles.backgroundImage}>
+      <LinearGradient
+       colors={['rgb(255,255,255)','rgba(36,106,115,0.9)','rgb(255,255,255)' ]}
+       style={{
+         position: 'absolute',
+         left: 0,
+         right: 0,
+         top: 0,
+         height: 800,
+       }}
+     />
       <Content contentContainerStyle= {{
         flex: 1,
           alignItems: 'center',
           justifyContent : 'center',
       }}>
-      <Text>Welcome to Questline</Text>
-      <Text> Please Login </Text>
-      <Button block light onPress={this.onLoginPress}><Text>Google Login</Text></Button>
-      <Button block light onPress={this.onDeveloperPress}><Text>Skip to Home</Text></Button>
-      <Text>{this.state.failText}</Text>
+      <Text style={styles.welcomeDivs}>Welcome to Questline</Text>
+      <Text style={styles.loginDiv}> Please Login:</Text>
+      <Button
+         info
+         block
+         light
+         bordered
+         style={styles.buttonStyle}
+         onPress={this.onLoginPress}
+         color="red"
+       ><Text style={styles.loginDiv}>Google Login</Text></Button>
+
+      <Button
+        bordered
+        block
+        light
+        style={styles.buttonStyle}
+        onPress={this.onDeveloperPress}>
+
+      <Text style={styles.loginDiv}>Skip to Home</Text></Button>
+
+      <Text >{this.state.failText}</Text>
 
       </Content>
-
+      </ImageBackground>
       </Container>
     );
   }
@@ -113,11 +143,14 @@ const LoginScreenStackNav = StackNavigator({
   LoginScreen: { screen : LoginScreen,
         navigationOptions: {
           header: null,
-        }},  
+        }},
   HomeScreen: { screen : HomeScreen,
         navigationOptions: {
           header: null,
         } },
 });
+
+const styles=require('../styles/StyleSheet');
+
 
 export default LoginScreenStackNav;

@@ -7,6 +7,7 @@ import { LinearGradient } from 'expo';
 import { Icon, Button, Container, Header, Content, Left } from 'native-base';
 //import style from '../styles/StyleSheet'
 //const style = mystyles
+//lets see it
 
 class StatsScreen extends Component {
   static navigationOptions = {
@@ -53,7 +54,7 @@ class StatsScreen extends Component {
            left: 0,
            right: 0,
            top: 0,
-           height: 600,
+           height: 800,
          }}
        />
         <Content style={styles.statsPage} contentContainerStyle={{

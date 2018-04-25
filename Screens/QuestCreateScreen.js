@@ -18,7 +18,7 @@ class QuestCreateScreen extends Component {
         this.setState({
           userLat: position.coords.latitude,
           userLong: position.coords.longitude,
-          error: null,
+          error: null,  
         });
       },
       (error) => this.setState({ error: error.message }),
@@ -27,7 +27,7 @@ class QuestCreateScreen extends Component {
 
     //Get quest list
     AsyncStorage.getItem('localQuestList').then( value => {
-      this.setState({'localQuestList': JSON.parse(value) }); 
+      this.setState({'localQuestList': JSON.parse(value) });
       console.log(this.state.localQuestList);
     });
   }

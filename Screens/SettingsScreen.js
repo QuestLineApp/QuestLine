@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { AsyncStorage, Image, View, Text, StyleSheet, TextInput, Picker, KeyboardAvoidingView} from 'react-native';
 import { CheckBox } from 'react-native-elements'
 import { Icon, Button, Container, Header, Content, Left } from 'native-base';
+import { LinearGradient } from 'expo';
 
 class SettingsScreen extends Component {
 
@@ -10,7 +11,7 @@ class SettingsScreen extends Component {
     super(props);
     AsyncStorage.getItem('users').then( value => {
       let users = JSON.parse(value);
-      if(!users) users = {};
+      if(!users) users = {}; 
       if(users[user.id]) {
         this.setState({"givenName" : users[user.id].givenName});
         this.setState({"familyName" : users[user.id].familyName});
@@ -86,6 +87,16 @@ class SettingsScreen extends Component {
               </Button>
             </Left>
           </Header>
+          <LinearGradient
+           colors={['rgb(255,255,255)','rgba(36,106,115,0.9)','rgb(255,255,255)' ]}
+           style={{
+             position: 'absolute',
+             left: 0,
+             right: 0,
+             top: 0,
+             height: 800,
+           }}
+         />
           <Content contentContainerStyle={{
             flex : 1,
             alignItems : 'center',
@@ -132,8 +143,16 @@ class SettingsScreen extends Component {
               />
 
             </View>
+            <Button
+               info
+               block
+               light
+               bordered
+               style={styles.buttonStyle}
+               onPress={()=> this.save()}
+               color="red"
+             ><Text style={styles.loginDiv}>Save Changes </Text></Button>
 
-            <Button block light onPress={()=> this.save()}><Text> Save Changes </Text></Button>
 
           </Content>
         </Container>
@@ -141,5 +160,10 @@ class SettingsScreen extends Component {
     );
   }
 }
+const styles=require('../styles/StyleSheet');
+
 
 export default SettingsScreen;
+
+//IF button has issues replace with old one
+// <Button block light onPress={()=> this.save()}><Text> Save Changes </Text></Button>

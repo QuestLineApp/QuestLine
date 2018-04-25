@@ -5,49 +5,53 @@ import { StackNavigator } from 'react-navigation';
 import { LinearGradient } from 'expo';
 
 import { Icon, Button, Container, Header, Content, Left } from 'native-base';
-import StatsScreen from './StatsScreen';
-import EditProfileScreen from './EditProfileScreen';
+// import StatsScreen from './StatsScreen';
+// import ProfileScreen from './ProfileScreen';
 
 
-class ProfileScreen extends Component {
-  showUname = async()=>{
-    let myArray= await AsyncStorage.getItem('profData')
-    let d =JSON.parse(myArray)
-    //this.state.username=d.uname
-    this.setState({username:d.uname})
-    this.setState({description:d.desc})
-    this.setState({favquest:d.favq})
-    // yo=d.uname
-    // return yo
-
-    //alert(d.uname+d.desc+d.favq)
-  }
+class EditProfileScreen extends Component {
   constructor(props){
+    // super(props)
+    //
+    // this.state={
+    //   uname:'',desc:'',favq:''
+    //   // uname:d.uname,desc:'',favq:''
+    // }
+
     super(props)
 
-    this.state = {
-      username: '',
-      description: '',
-      favquest: '',
-    };
-    this.showUname()
-    // alert(v)
-    // this.state={
-    //   username:v
-    // };
-  }
+    AsyncStorage.getItem('profData').then( value => {
+      this.setState({'profData': JSON.parse(value) });
+      console.log('mountin and set: ' + this.state.profData);
+      this.ree = true;
+      this.forceUpdate();
+    });
 
+
+  }
   static navigationOptions = {
     drawerIcon: (
       <Image source={require('../assets/profileIcon.png')}
       style={{height:24, width:24}} />
     )
   }
-  onStatsPress = () => {
-    this.props.navigation.navigate('StatsScreen')
+  onCancelPress = () => {
+    this.props.navigation.navigate('ProfileScreen')
   }
-  onEditPress = () => {
-    this.props.navigation.navigate('EditProfileScreen')
+  saveData = ()=>{
+    const {uname,desc,favq}=this.state
+
+    let profData={
+      uname: uname,
+      desc: desc,
+      favq: favq
+    }
+    AsyncStorage.setItem('profData', JSON.stringify(profData))
+
+
+    //alert(uname+desc+favq)
+    this.props.navigation.navigate('ProfileScreen')
+
   }
 
   showData = async()=>{
@@ -63,8 +67,7 @@ class ProfileScreen extends Component {
 
 
     let d =JSON.parse(myArray)
-    return d
-    //alert(d.uname+d.desc+d.favq)
+    alert(d.uname+d.desc+d.favq)
   }
 
   render() {
@@ -93,28 +96,41 @@ class ProfileScreen extends Component {
          height: 800,
        }}
      />
-     {this.showUname}
-      <Image source={{uri: user.photoUrl}} style={styles.profileImage} />
+      <Image source={{uri: user.photoUrl}} style={styles.profileImage2} />
       <Text style={styles.profNameStyle}>{user.name}</Text>
       <Text>{user.email}</Text>
-      <Text style={styles.username}>Username: {this.state.username}</Text>
-      <Text>Experience:{user.stats.experience}</Text>
-      <Text style={styles.favquest}>Favorite Quest: {this.state.favquest}</Text>
-      <Text style={styles.description}>Description: {this.state.description}</Text>
+      <Text style={{fontSize: 25}}>Edit your profile data</Text>
+      <TextInput
+      placeholder="User Name"
+      style={styles.input}
+      onChangeText={uname => this.setState({uname})}
+      />
+      <TextInput  
+      placeholder="Favorite Quest"
+      style={styles.input}
+      onChangeText={favq => this.setState({favq})}
+      />
+      <TextInput
+      placeholder="Description"
+      style={styles.inputDescription}
+      onChangeText={desc => this.setState({desc})}
+      />
+
       <Button
          blocks
          bordered
-         style={styles.statsButtonStyle}
-         onPress={this.onStatsPress}
+         style={styles.cancelButtonStyle}
+         onPress={this.onCancelPress}
          color="red"
-       ><Text style={styles.loginDiv}>View Stats</Text></Button>
+       ><Text style={styles.loginDiv}>Cancel</Text></Button>
        <Button
           blocks
           bordered
-          style={styles.editButtonStyle}
-          onPress={this.onEditPress}
+          style={styles.saveButtonStyle}
+          onPress={this.saveData}
           color="red"
-        ><Text style={styles.loginDiv}>Edit Profile</Text></Button>
+        ><Text style={styles.loginDiv}>Save Data</Text></Button>
+
       </Content>
       </Container>
     );
@@ -124,15 +140,14 @@ const navigationOptions = {header: null };
 
 
 const profScreenStackNav = StackNavigator({
-  ProfileScreen: { screen : ProfileScreen,
+  EditProfileScreen: { screen : EditProfileScreen,
         navigationOptions: {
           header: null,
         } },
   //Dropped this, you need the arrow to go back on this one
-  StatsScreen: { screen : StatsScreen,
-    },
-  EditProfileScreen: { screen : EditProfileScreen,
-        },
+  // ProfileScreen: { screen : ProfileScreen,
+  //   },
+
 });
 const styles=require('../styles/StyleSheet');
 

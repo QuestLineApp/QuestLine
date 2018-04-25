@@ -97,9 +97,9 @@ class QuestListScreen extends Component {
               height:20,
                 position:'absolute',
                 bottom:10,
-                flex:1, 
-                flexDirection: 'row', 
-                width:'80%', 
+                flex:1,
+                flexDirection: 'row',
+                width:'80%',
               }}>
               <View style={{flex:1}}>
                 <Button block style = {{
@@ -107,8 +107,8 @@ class QuestListScreen extends Component {
                   position:'absolute',
                   bottom:0,
                   backgroundColor:'#ffd150',
-                  width:'90%', 
-                  alignSelf:'center'}} 
+                  width:'90%',
+                  alignSelf:'center'}}
                   onPress={()=> this.editQuest(idx)}>
                   <Text> Edit </Text>
                 </Button>
@@ -119,7 +119,7 @@ class QuestListScreen extends Component {
                   position:'absolute',
                   bottom:0,
                   backgroundColor:'#cc5050',
-                  width:'90%', 
+                  width:'90%',
                   alignSelf:'center',
                   }} onPress={()=> this.deleteQuest(idx)}>
                   <Text> Delete </Text>
@@ -131,7 +131,7 @@ class QuestListScreen extends Component {
                   position:'absolute',
                   bottom:0,
                   backgroundColor:'#50cc50',
-                  width:'90%', 
+                  width:'90%',
                   alignSelf:'center',
                   }} onPress={()=> this.completeQuest(idx)}>
                   <Text> Complete </Text>

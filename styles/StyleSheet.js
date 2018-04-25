@@ -28,6 +28,61 @@ module.exports = StyleSheet.create({
         fontSize: 35,
         color: 'white'
       },
+      welcomeDivs: {
+        //backgroundColor: 'grey',
+        borderColor: 'rgb(0,0,0)',
+        fontSize: 50,
+        textAlign: 'center',
+        marginBottom:50,
+        color: 'white',
+
+      },
+      buttonStyle:{
+        borderColor: 'rgba(31, 39, 192,.5)',
+        backgroundColor: 'rgba(31, 39, 192,.1)',
+        marginBottom: '6%'
+      },
+      statsButtonStyle:{
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderColor: 'rgba(31, 39, 192,.5)',
+        backgroundColor: 'rgba(31, 39, 192,.1)',
+        position: 'absolute',
+        // bottom: 10,
+        top:150,
+        width:'100%'
+      },
+      editButtonStyle:{
+        // alignItems: 'center',
+        // justifyContent: 'center',
+        position: 'absolute',
+        // bottom: 10,
+        bottom:150,
+        right: 5,
+        borderColor: 'rgba(31, 39, 192,.5)',
+        backgroundColor: 'rgba(31, 39, 192,.1)',
+        // marginTop: '80%',
+        // width:'100%'
+      },
+      showButtonStyle:{
+        // alignItems: 'center',
+        // justifyContent: 'center',
+        position: 'absolute',
+        // bottom: 10,
+        top:50,
+        right: 5,
+        borderColor: 'rgba(31, 39, 192,.5)',
+        backgroundColor: 'rgba(31, 39, 192,.1)',
+        // marginTop: '80%',
+        // width:'100%'
+      },
+      loginDiv: {
+        //backgroundColor: 'grey',
+        borderBottomWidth: 5,
+        borderColor: 'rgb(0,0,0)',
+        fontSize: 20,
+        color: 'white'
+      },
       statsDivsCulture: {
         backgroundColor: 'rgba(54,133,181,.6)',
         fontSize: 35,
@@ -62,6 +117,81 @@ module.exports = StyleSheet.create({
         fontSize: 30,
         color: 'white'
       },
+      profileImage:{
+        width: 56, height: 75,
+        position: 'absolute',
+        top: 5,
+        right: 5
+      },
+      profileImage2:{
+        width: 112, height: 150,
+        position: 'absolute',
+        top: 50,
+        // right: 5
+      },
+      profNameStyle:{
+        position: 'absolute',
+        fontSize: 15,
+        top: 5,
+        marginBottom: 100,
+      },
+      input:{
+        backgroundColor:'#fff',padding:10, margin:10,
+        borderWidth: 1, borderColor:'#ccc'
+      },
+      inputDescription:{
+        backgroundColor:'#fff',padding:10, margin:10,
+        borderWidth: 1, borderColor:'#ccc',
+        width:"70%"
+      },
+      username:{
+        top:85,
+        right:5,
+        position: 'absolute',
+        fontSize: 15,
+        color: "black"
+      },
+      description:{
+        left: 5,
+        top: 250,
+        position: 'absolute',
+        fontSize: 23,
+        width:'90%'
+      },
+      favquest:{
+        position: 'absolute',
+        fontSize: 23,
+        top: 200,
+        left: 5
+      },
+      cancelButtonStyle:{
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'absolute',
+        // bottom: 10,
+        // top:50,
+        right: 5,
+        bottom: 120,
+        width:'100%',
+        borderColor: 'rgba(31, 39, 192,.5)',
+        backgroundColor: 'rgba(31, 39, 192,.1)',
+        // marginTop: '80%',
+        // width:'100%'
+      },
+      saveButtonStyle:{
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'absolute',
+        bottom: 170,
+        // top:50,
+        width:"100%",
+        borderColor: 'rgba(31, 39, 192,.5)',
+        backgroundColor: 'rgba(31, 39, 192,.1)',
+        // marginTop: '80%',
+        // width:'100%'
+      },
+
+
 
 });
 
