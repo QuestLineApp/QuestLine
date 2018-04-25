@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { AsyncStorage, Image, View, Text, StyleSheet, TextInput, Picker, KeyboardAvoidingView} from 'react-native';
 import { CheckBox } from 'react-native-elements'
 import { Icon, Button, Container, Header, Content, Left } from 'native-base';
+import { ConfirmDialog } from 'react-native-simple-dialogs';
 
 class SettingsScreen extends Component {
 
@@ -37,9 +38,9 @@ class SettingsScreen extends Component {
     this.setState({"givenName" : ""});
     this.setState({"familyName" : ""});
     this.setState({"email" : ""});
-    this.setState({"culture_checked" : false});
+    this.setState({"culture_checked"  : false});
     this.setState({"physical_checked" : false});
-    this.setState({"food_checked" : false});
+    this.setState({"food_checked"     : false});
     this.setState({"academic_checked" : false});
   }
 
@@ -63,6 +64,18 @@ class SettingsScreen extends Component {
         AsyncStorage.setItem('users',JSON.stringify(users));
         console.log('users ' + JSON.stringify(users));
       });
+  }
+
+  clear() {
+    console.log("clear async storage");
+    AsyncStorage.clear()
+    this.setState({"givenName" : user.givenName});
+    this.setState({"familyName" : user.familyName});
+    this.setState({"email" : (user.email) ? user.email : "no email"});
+    this.setState({"culture_checked" : true});
+    this.setState({"physical_checked" : true});
+    this.setState({"food_checked" : true});
+    this.setState({"academic_checked" : true});
   }
 
   static navigationOptions = {
@@ -134,8 +147,23 @@ class SettingsScreen extends Component {
             </View>
 
             <Button block light onPress={()=> this.save()}><Text> Save Changes </Text></Button>
+            <Button block warning onPress={()=> this.setState({dialogVisible:true})}><Text>Delete Profile</Text></Button>
 
           </Content>
+          <ConfirmDialog
+            title="Are you sure?"
+            message="This will delete all your saved quests"
+            visible={this.state.dialogVisible}
+            onTouchOutside={() => this.setState({dialogVisible: false})}
+            positiveButton={{
+                title: "YES",
+                onPress: () => this.clear()
+            }}
+            negativeButton={{
+                title: "NO",
+                onPress: () =>
+            }}
+          />
         </Container>
       </KeyboardAvoidingView>
     );
