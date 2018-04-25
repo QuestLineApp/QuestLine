@@ -133,7 +133,7 @@ class QuestCompletedScreen extends Component {
 
   static navigationOptions = {
     drawerIcon: (
-      <Image source={require('../assets/list.png')}
+      <Image source={require('../assets/check.png')}
       style={{height:24, width:24}} />
     )
   }

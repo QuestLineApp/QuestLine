@@ -65,7 +65,7 @@ class QuestCreateScreen extends Component {
 
   static navigationOptions = {
     drawerIcon: (
-      <Image source={require('../assets/create.png')}
+      <Image source={require('../assets/plus.png')}
       style={{height:24, width:24}} />
     )
   }
