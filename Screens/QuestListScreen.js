@@ -14,10 +14,19 @@ class QuestListScreen extends Component {
   constructor(props){
     super(props);
     AsyncStorage.getItem('localQuestList').then( value => {
-      this.setState({'localQuestList': JSON.parse(value) });
-      console.log('mountin and set: ' + this.state.localQuestList);
-      this.ree = true;
-      this.forceUpdate();
+      if(value){
+        this.setState({'localQuestList': JSON.parse(value) });
+        console.log('mountin and set: ' + this.state.localQuestList);
+        this.ree = true;
+        this.forceUpdate();
+      }
+      else {
+        this.setState({'localQuestList': { 'list': [] } });
+        console.log('created new quest list');
+        this.ree = true;
+        this.forceUpdate();
+
+      }
     });
     console.log('construct');
   }
@@ -42,6 +51,10 @@ class QuestListScreen extends Component {
 
   completeQuest(idx) {
     this.state.localQuestList.list[idx].complete = true;
+    if(user.stats.experience == 'undefined') 
+      user.stats.experience = 0;
+    else
+      user.stats.experience += (this.state.localQuestList.list[idx].difficulty + 25) * 4;
     this.saveQuestList();
     this.forceUpdate();
   }
