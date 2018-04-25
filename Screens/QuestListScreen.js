@@ -14,10 +14,19 @@ class QuestListScreen extends Component {
   constructor(props){
     super(props);
     AsyncStorage.getItem('localQuestList').then( value => {
-      this.setState({'localQuestList': JSON.parse(value) });
-      console.log('mountin and set: ' + this.state.localQuestList);
-      this.ree = true;
-      this.forceUpdate();
+      if(value){
+        this.setState({'localQuestList': JSON.parse(value) });
+        console.log('mountin and set: ' + this.state.localQuestList);
+        this.ree = true;
+        this.forceUpdate();
+      }
+      else {
+        this.setState({'localQuestList': { 'list': [] } });
+        console.log('created new quest list');
+        this.ree = true;
+        this.forceUpdate();
+
+      }
     });
     console.log('construct');
   }
@@ -30,6 +39,10 @@ class QuestListScreen extends Component {
     AsyncStorage.setItem('localQuestList',JSON.stringify(this.state.localQuestList));
   }
 
+  editQuest() {
+    console.log('editing quest!');
+  }
+
   deleteQuest(idx) {
     this.state.localQuestList.list.splice(idx,1);
     this.saveQuestList();
@@ -38,6 +51,10 @@ class QuestListScreen extends Component {
 
   completeQuest(idx) {
     this.state.localQuestList.list[idx].complete = true;
+    if(user.stats.experience == 'undefined') 
+      user.stats.experience = 0;
+    else
+      user.stats.experience += (this.state.localQuestList.list[idx].difficulty + 1) * 25;
     this.saveQuestList();
     this.forceUpdate();
   }
@@ -67,14 +84,13 @@ class QuestListScreen extends Component {
       return(
           <View key={idx} style = {{height:200,width:'90%',backgroundColor:'#26A69A',alignItems:'center',alignSelf:'center',margin: 4}}>
             <Text style= {{'fontWeight': 'bold'}}> {item.name}</Text>
-            <ScrollView style={{backgroundColor:'blue', width:'90%', position:'absolute','top':'10%',bottom:'20%'}}>
-            <Text style= {{flex:1, alignSelf:'center', fontWeight:'bold'}}>Description</Text>
+            <ScrollView style={{backgroundColor:'#7DC0A1', width:'90%', position:'absolute','top':'10%',bottom:'20%'}}>
+            <Text style= {{flex:1, alignSelf:'center', fontWeight:'bold', fontSize:16}}>Description</Text>
             <Text style= {{flex:1, alignSelf:'center'}}> {item.description}</Text>
-            <Text style= {{flex:1, alignSelf:'center', fontWeight:'bold'}}>Type</Text>
+            <Text style= {{flex:1, alignSelf:'center', fontWeight:'bold', fontSize:16}}>Type</Text>
             <Text style= {{flex:1, alignSelf:'center'}}> {item.type}</Text>
-            <Text style= {{flex:1, alignSelf:'center', fontWeight:'bold'}}>Difficulty</Text>
+            <Text style= {{flex:1, alignSelf:'center', fontWeight:'bold', fontSize:16}}>Difficulty</Text>
             <Text style= {{flex:1, alignSelf:'center'}}> {this.getDifficulty(item)}</Text>
-            <Text style= {{flex:1, alignSelf:'center', fontWeight:'bold'}}>Location</Text>
 
             </ScrollView>
             <View style={{
