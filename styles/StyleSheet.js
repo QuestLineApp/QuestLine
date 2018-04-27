@@ -118,7 +118,7 @@ module.exports = StyleSheet.create({
         color: 'white'
       },
       profileImage:{
-        width: 56, height: 75,
+        width: 42, height: 57,
         position: 'absolute',
         top: 5,
         right: 5
@@ -171,7 +171,7 @@ module.exports = StyleSheet.create({
         // bottom: 10,
         // top:50,
         right: 5,
-        bottom: 120,
+        bottom: 20,
         width:'100%',
         borderColor: 'rgba(31, 39, 192,.5)',
         backgroundColor: 'rgba(31, 39, 192,.1)',
@@ -182,7 +182,7 @@ module.exports = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         position: 'absolute',
-        bottom: 170,
+        bottom: 70,
         // top:50,
         width:"100%",
         borderColor: 'rgba(31, 39, 192,.5)',

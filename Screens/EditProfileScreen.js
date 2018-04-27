@@ -103,7 +103,7 @@ class EditProfileScreen extends Component {
       style={styles.input}
       onChangeText={uname => this.setState({uname})}
       />
-      <Picker style={{height:5, width:200}} selectedValue = {this.state.type} onValueChange = {(value) => this.setState({favq:value})}>
+      <Picker style={{height:1, width:200}} selectedValue = {this.state.type} onValueChange = {(value) => this.setState({favq:value})}>
         <Picker.Item label = "Physical" value = "Physical" />
         <Picker.Item label = "Cultural" value = "Cultural" />
         <Picker.Item label = "Academic" value = "Academic" />
@@ -114,8 +114,9 @@ class EditProfileScreen extends Component {
       style={styles.inputDescription}
       onChangeText={desc => this.setState({desc})}
       />
-      
 
+      <Text style={{fontSize: 15}}>Pick your favorite Quest type:</Text>
+ 
       <Button
          blocks
          bordered
