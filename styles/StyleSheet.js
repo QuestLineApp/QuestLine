@@ -30,7 +30,7 @@ module.exports = StyleSheet.create({
       },
       welcomeDivs: {
         //backgroundColor: 'grey',
-        borderColor: 'rgb(0,0,0)',
+        // borderColor: 'rgb(0,0,0)',
         fontSize: 50,
         textAlign: 'center',
         marginBottom:50,
@@ -38,14 +38,14 @@ module.exports = StyleSheet.create({
 
       },
       buttonStyle:{
-        borderColor: 'rgba(31, 39, 192,.5)',
+        // borderColor: 'rgba(31, 39, 192,.5)',
         backgroundColor: 'rgba(31, 39, 192,.1)',
         marginBottom: '6%'
       },
       statsButtonStyle:{
         alignItems: 'center',
         justifyContent: 'center',
-        borderColor: 'rgba(31, 39, 192,.5)',
+        // borderColor: 'rgba(31, 39, 192,.5)',
         backgroundColor: 'rgba(31, 39, 192,.1)',
         position: 'absolute',
         // bottom: 10,
@@ -59,7 +59,7 @@ module.exports = StyleSheet.create({
         // bottom: 10,
         bottom:150,
         right: 5,
-        borderColor: 'rgba(31, 39, 192,.5)',
+        // borderColor: 'rgba(31, 39, 192,.5)',
         backgroundColor: 'rgba(31, 39, 192,.1)',
         // marginTop: '80%',
         // width:'100%'
@@ -71,7 +71,7 @@ module.exports = StyleSheet.create({
         // bottom: 10,
         top:50,
         right: 5,
-        borderColor: 'rgba(31, 39, 192,.5)',
+        // borderColor: 'rgba(31, 39, 192,.5)',
         backgroundColor: 'rgba(31, 39, 192,.1)',
         // marginTop: '80%',
         // width:'100%'
@@ -79,7 +79,7 @@ module.exports = StyleSheet.create({
       loginDiv: {
         //backgroundColor: 'grey',
         borderBottomWidth: 5,
-        borderColor: 'rgb(0,0,0)',
+        // borderColor: 'rgb(0,0,0)',
         fontSize: 20,
         color: 'white'
       },
@@ -173,7 +173,7 @@ module.exports = StyleSheet.create({
         right: 5,
         bottom: 20,
         width:'100%',
-        borderColor: 'rgba(31, 39, 192,.5)',
+        // borderColor: 'rgba(31, 39, 192,.5)',
         backgroundColor: 'rgba(31, 39, 192,.1)',
         // marginTop: '80%',
         // width:'100%'
@@ -185,7 +185,19 @@ module.exports = StyleSheet.create({
         bottom: 70,
         // top:50,
         width:"100%",
-        borderColor: 'rgba(31, 39, 192,.5)',
+        // borderColor: 'rgba(31, 39, 192,.5)',
+        backgroundColor: 'rgba(31, 39, 192,.1)',
+        // marginTop: '80%',
+        // width:'100%'
+      },
+      shareProfStyle:{
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'absolute',
+        bottom:120,
+        // top:50,
+        width:"100%",
+        // borderColor: 'rgba(31, 39, 192,.5)',
         backgroundColor: 'rgba(31, 39, 192,.1)',
         // marginTop: '80%',
         // width:'100%'

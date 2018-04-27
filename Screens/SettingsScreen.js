@@ -11,7 +11,7 @@ class SettingsScreen extends Component {
     super(props);
     AsyncStorage.getItem('users').then( value => {
       let users = JSON.parse(value);
-      if(!users) users = {}; 
+      if(!users) users = {};
       if(users[user.id]) {
         this.setState({"givenName" : users[user.id].givenName});
         this.setState({"familyName" : users[user.id].familyName});
@@ -87,6 +87,12 @@ class SettingsScreen extends Component {
               </Button>
             </Left>
           </Header>
+
+          <Content contentContainerStyle={{
+            flex : 1,
+            alignItems : 'center',
+            justifyContent : 'center'
+          }}>
           <LinearGradient
            colors={['rgb(255,255,255)','rgba(36,106,115,0.9)','rgb(255,255,255)' ]}
            style={{
@@ -97,11 +103,6 @@ class SettingsScreen extends Component {
              height: 800,
            }}
          />
-          <Content contentContainerStyle={{
-            flex : 1,
-            alignItems : 'center',
-            justifyContent : 'center'
-          }}>
 
             <Text>Change Profile Settings</Text>
 
