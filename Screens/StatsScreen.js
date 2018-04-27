@@ -22,10 +22,10 @@ class StatsScreen extends Component {
 //TODO change this data to test
     this.state = {
       class: 'Fighter',
-      distance: 14,
-      culture: 30,
-      physical: 15,
-      academic: 30,
+      distance: user.stats.other,
+      culture: user.stats.culture,
+      physical: user.stats.physical,
+      academic: user.stats.academic,
     };
   }
 
@@ -72,8 +72,8 @@ class StatsScreen extends Component {
 
 
         <Text style={styles.statsDivs}> Class: {this.state.class}</Text>
-        <Text style={styles.statsDivsPhysical}> Physical: {this.state.physical} </Text>
-        <Text style={styles.statsDivsDistance}> Food: {this.state.distance}</Text>
+        <Text style={styles.statsDivsPhysical}> Physical: {user.stats.physical} </Text>
+        <Text style={styles.statsDivsDistance}> Other: {this.state.distance}</Text>
         <Text style={styles.statsDivsCulture}> Culture: {this.state.culture}</Text>
         <Text style={styles.statsDivsAcademic}> Academic: {this.state.academic}</Text>
 

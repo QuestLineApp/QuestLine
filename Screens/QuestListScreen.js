@@ -50,11 +50,50 @@ class QuestListScreen extends Component {
   }
 
   completeQuest(idx) {
+
+///item.type
     this.state.localQuestList.list[idx].complete = true;
-    if(user.stats.experience == 'undefined') 
+    if(user.stats.experience == 'undefined')
       user.stats.experience = 0;
     else
       user.stats.experience += (this.state.localQuestList.list[idx].difficulty + 1) * 25;
+
+    //// TODO: all if statements
+    //'Physical',Cultural,Academic,Other
+    //if (this.state.localQuestList.list[idx].type==)
+    if(this.state.localQuestList.list[idx].type=="Physical"){
+      if(user.stats.physical == 'undefined')
+        user.stats.physical = 0;
+      else
+        user.stats.physical += (this.state.localQuestList.list[idx].difficulty + 1) * 25;}
+
+    else if(this.state.localQuestList.list[idx].type=="Cultural"){
+      if(user.stats.culture == 'undefined')
+        user.stats.culture = 0;
+      else
+        user.stats.culture += (this.state.localQuestList.list[idx].difficulty + 1) * 25;}
+
+    else if(this.state.localQuestList.list[idx].type=="Academic"){
+      if(user.stats.academic == 'undefined')
+        user.stats.academic = 0;
+      else
+        user.stats.academic += (this.state.localQuestList.list[idx].difficulty + 1) * 25;}
+
+    else if(this.state.localQuestList.list[idx].type=="Other"){
+      if(user.stats.other == 'undefined')
+        user.stats.other = 0;
+      else
+        user.stats.other += (this.state.localQuestList.list[idx].difficulty + 1) * 25;}
+//////// TODO: potential async storage start to saving data
+      // const {totalxp,culturexp,academicxp,physicalxp}=this.state
+      //
+      // let expData={
+      //   totalxp: uname,
+      //   desc: desc,
+      //   favq: favq
+      // }
+      // AsyncStorage.setItem('profData', JSON.stringify(profData))
+/////todo
     this.saveQuestList();
     this.forceUpdate();
   }

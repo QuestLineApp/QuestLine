@@ -1,4 +1,3 @@
-//https://www.flaticon.com/free-icon/settings_263074
 import React, { Component } from 'react';
 import { AppRegistry, Image, View, Text, StyleSheet,ImageBackground } from 'react-native';
 import { PieChart } from 'react-native-svg-charts'
@@ -12,7 +11,7 @@ import { Icon, Button, Container, Header, Content, Left } from 'native-base';
 class StatsScreen extends Component {
   static navigationOptions = {
     drawerIcon: (
-      <Image source={require('../assets/statsIcon.png')}
+      <Image source={require('../assets/group.png')}
              style={{height:24, width:24}} />
     )
   }
@@ -45,16 +44,16 @@ class StatsScreen extends Component {
             </Button>
           </Left>
         </Header>
-        <ImageBackground source={require('../assets/stats.png')}
+        <ImageBackground source={require('../assets/group.png')}
         style={styles.backgroundImage}>
         <LinearGradient
-         colors={['rgb(0,0,0)','rgba(36,106,115,0.9)','rgb(255,255,255)' ]}
+         colors={['rgb(255,255,255)','rgba(36,106,115,0.9)','rgb(255,255,255)' ]}
          style={{
            position: 'absolute',
            left: 0,
            right: 0,
            top: 0,
-           height: 600,
+           height: 800,
          }}
        />
         <Content style={styles.statsPage} contentContainerStyle={{
@@ -68,10 +67,11 @@ class StatsScreen extends Component {
           // alignItems : 'Left',
           // justifyContent : 'center'
         }}>
+        <Text style={styles.topQuests}>Top Quests in your area:</Text>   
 
 
 
-      
+
 
 
 
