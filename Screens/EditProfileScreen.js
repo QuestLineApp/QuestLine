@@ -1,6 +1,6 @@
 //https://www.flaticon.com/free-icon/settings_263074
 import React, { Component } from 'react';
-import { Image, View, Text, StyleSheet,TextInput, AsyncStorage } from 'react-native';
+import { Image, View, Text, StyleSheet,TextInput,Picker, AsyncStorage } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { LinearGradient } from 'expo';
 
@@ -11,12 +11,7 @@ import { Icon, Button, Container, Header, Content, Left } from 'native-base';
 
 class EditProfileScreen extends Component {
   constructor(props){
-    // super(props)
-    //
-    // this.state={
-    //   uname:'',desc:'',favq:''
-    //   // uname:d.uname,desc:'',favq:''
-    // }
+
 
     super(props)
 
@@ -26,6 +21,9 @@ class EditProfileScreen extends Component {
       this.ree = true;
       this.forceUpdate();
     });
+    this.state = {
+      type: 'academic'
+    };
 
 
   }
@@ -105,16 +103,18 @@ class EditProfileScreen extends Component {
       style={styles.input}
       onChangeText={uname => this.setState({uname})}
       />
-      <TextInput  
-      placeholder="Favorite Quest"
-      style={styles.input}
-      onChangeText={favq => this.setState({favq})}
-      />
+      <Picker style={{height:5, width:200}} selectedValue = {this.state.type} onValueChange = {(value) => this.setState({favq:value})}>
+        <Picker.Item label = "Physical" value = "Physical" />
+        <Picker.Item label = "Cultural" value = "Cultural" />
+        <Picker.Item label = "Academic" value = "Academic" />
+        <Picker.Item label = "Other" value = "Other" />
+      </Picker>
       <TextInput
       placeholder="Description"
       style={styles.inputDescription}
       onChangeText={desc => this.setState({desc})}
       />
+      
 
       <Button
          blocks
