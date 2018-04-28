@@ -14,6 +14,18 @@ class ProfileScreen extends Component {
     let myArray= await AsyncStorage.getItem('profData')
     let d =JSON.parse(myArray)
     //this.state.username=d.uname
+    if (d.favq=="Physical"){
+      user.questClass="Fighter"
+    }
+    else if (d.favq=="Cultural"){
+      user.questClass="Artist"
+    }
+    else if (d.favq=="Academic"){
+      user.questClass="Scholar"
+    } 
+    else if (d.favq=="Other"){
+      user.questClass="Individual"
+    }
     this.setState({username:d.uname})
     this.setState({description:d.desc})
     this.setState({favquest:d.favq})
@@ -99,7 +111,7 @@ class ProfileScreen extends Component {
       <Text>{user.email}</Text>
       <Text style={styles.username}>Username: {this.state.username}</Text>
       <Text>Experience:{user.stats.experience}</Text>
-      <Text style={styles.favquest}>Favorite Quest: {this.state.favquest}</Text>
+      <Text style={styles.favquest}>Favorite Quest Type: {this.state.favquest}</Text>
       <Text style={styles.description}>Description: {this.state.description}</Text>
       <Button
          blocks

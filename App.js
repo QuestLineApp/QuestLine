@@ -9,6 +9,7 @@ import SettingsScreen from './Screens/SettingsScreen'
 import QuestCreateScreen from './Screens/SettingsScreen'
 
 user = null;
+challengeQuest = null;
 
 export default class App extends React.Component {
   render() {

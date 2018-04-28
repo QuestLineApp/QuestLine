@@ -71,7 +71,7 @@ class StatsScreen extends Component {
 
 
 
-        <Text style={styles.statsDivs}> Class: {this.state.class}</Text>
+        <Text style={styles.statsDivs}> Class: {user.questClass}</Text>
         <Text style={styles.statsDivsPhysical}> Physical: {user.stats.physical} </Text>
         <Text style={styles.statsDivsDistance}> Other: {this.state.distance}</Text>
         <Text style={styles.statsDivsCulture}> Culture: {this.state.culture}</Text>

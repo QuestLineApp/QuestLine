@@ -2,13 +2,22 @@ import React, { Component } from 'react';
 import { AppRegistry, Image, View, Text, StyleSheet,ImageBackground } from 'react-native';
 import { PieChart } from 'react-native-svg-charts'
 import { LinearGradient } from 'expo';
+import { StackNavigator } from 'react-navigation';
+
 //import { Text } from 'react-native-svg'
 import { Icon, Button, Container, Header, Content, Left } from 'native-base';
 //import style from '../styles/StyleSheet'
 //const style = mystyles
 //lets see it
+import StatsScreen from './StatsScreen';
 
-class StatsScreen extends Component {
+import MessagingScreen from './MessagingScreen';
+import PickQuest from './PickQuest';
+import ShareProfile from './ShareProfile';
+import EditProfileScreen from './EditProfileScreen';
+
+
+class CommunityScreen extends Component {
   static navigationOptions = {
     drawerIcon: (
       <Image source={require('../assets/group.png')}
@@ -31,6 +40,16 @@ class StatsScreen extends Component {
   alertItemName = (item) => {
       alert("amount="+item.amount)
    }
+
+ initiateChallenge = () => {
+   //alert("it works")
+   this.props.navigation.navigate('PickQuest')
+ }
+
+ shareProf = () => {
+   //alert("it works")
+   this.props.navigation.navigate('ShareProfile')
+ }
 
 
   render() {
@@ -67,9 +86,21 @@ class StatsScreen extends Component {
           // alignItems : 'Left',
           // justifyContent : 'center'
         }}>
-        <Text style={styles.topQuests}>Top Quests in your area:</Text>   
-
-
+        <Text style={styles.topQuests}>Top Quests in your area:</Text>
+        <Button
+           blocks
+           bordered
+           style={styles.shareProfStyle}
+           onPress={this.shareProf}
+           color="red"
+         ><Text style={styles.loginDiv}>Share your profile stats</Text></Button>
+        <Button
+           blocks
+           bordered
+           style={styles.saveButtonStyle}
+           onPress={this.initiateChallenge}
+           color="red"
+         ><Text style={styles.loginDiv}>Send a Challenge!</Text></Button>
 
 
 
@@ -82,7 +113,28 @@ class StatsScreen extends Component {
     );
   }
 }
+
+const navigationOptions = {header: null };
+
+
+const commScreenStackNav = StackNavigator({
+  CommunityScreen: { screen : CommunityScreen,
+        navigationOptions: {
+          header: null,
+        } },
+  //Dropped this, you need the arrow to go back on this one
+  MessagingScreen: { screen : MessagingScreen,
+    },
+  StatsScreen: { screen : StatsScreen,
+    },
+  EditProfileScreen: { screen : EditProfileScreen,
+        },
+  PickQuest: { screen : PickQuest,
+        },
+  ShareProfile: { screen : ShareProfile,
+        },
+});
 const styles=require('../styles/StyleSheet');
 
 
-export default StatsScreen;
+export default commScreenStackNav;
