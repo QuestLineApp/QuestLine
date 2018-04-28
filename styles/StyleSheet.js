@@ -202,6 +202,42 @@ module.exports = StyleSheet.create({
         // marginTop: '80%',
         // width:'100%'
       },
+      buttonOne:{
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'absolute',
+        //bottom:170,
+        // top:50,
+        width:"100%",
+        // borderColor: 'rgba(31, 39, 192,.5)',
+        backgroundColor: 'rgba(31, 39, 192,.1)',
+        // marginTop: '80%',
+        // width:'100%'
+      },
+      topQuests:{
+        color:'black',
+        // textAlign:'center',
+        // position: 'absolute',
+        // alignItems: 'center',
+        // justifyContent: 'center',
+        fontSize: 20,
+      },
+      newloginDiv: {
+        //backgroundColor: 'grey',
+        borderBottomWidth: 5,
+        // borderColor: 'rgb(0,0,0)',
+        fontSize: 20,
+        color: 'black'
+      },
+      listButtons:{
+        alignItems: 'center',
+        justifyContent: 'center',
+        // bottom: 10,
+        // top:50
+        width:'100%',
+        // borderColor: 'rgba(31, 39, 192,.5)',
+        backgroundColor: 'rgba(31, 39, 192,.1)',
+      }
 
 
 

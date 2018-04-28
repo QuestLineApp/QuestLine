@@ -87,6 +87,8 @@ class HomeScreen extends Component {
   loaded = false;
 
   constructor(props){
+    //questData = [] //this needs to be reset or else if will add?
+    console.disableYellowBox = true; // TODO: check this, gets rid of warnings
     super(props);
     AsyncStorage.getItem('localQuestList').then( value => {
       this.setState({'localQuestList': JSON.parse(value) });

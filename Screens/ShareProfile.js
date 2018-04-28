@@ -76,7 +76,7 @@ class ShareProfile extends Component {
     // physical: user.stats.physical,
     // academic: user.stats.academic,
     // TODO: make class
-    if(user.stats.culture=="undefined"){
+    if(user.stats.culture==undefined){
       user.stats.culture=0
     }
     let str1="Check out my Questline Profile! Username: "
