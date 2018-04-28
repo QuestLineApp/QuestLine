@@ -217,7 +217,7 @@ module.exports = StyleSheet.create({
       topQuests:{
         //flex:1,
         backgroundColor:'rgba(0, 138, 142,.3)',
-        color:'white',
+        color:'black',
         //textShadowColor:'black',
         textAlign:'center',
         fontWeight: 'bold',
