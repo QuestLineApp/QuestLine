@@ -37,7 +37,7 @@ class CommunityScreen extends Component {
       // physical: 15,
       // academic: 30,
     };
-    this.setq()
+    // this.setq()
     // AsyncStorage.getItem('localQuestList').then( value => {
     //   this.setState({'localQuestList': JSON.parse(value) });
     //   console.log('mounting and set: ' + JSON.stringify(this.state.localQuestList));
@@ -69,7 +69,7 @@ class CommunityScreen extends Component {
       let list = this.state.localQuestList.list;
       console.log("building list");
       //alert(user.favq)
-      if (user.favq==undefined||user.favq=="not yet selected, set on profile page"){
+      if (user.favq==undefined||user.favq=="not yet selected, set on profile page"||user.favq=="Other"){
         // alert('we went here')
 
 
@@ -91,8 +91,9 @@ class CommunityScreen extends Component {
           this.loaded = true;
           this.forceUpdate();
       }
-      else{ //if(user.favq=="Academic"){//if (this.state.qfilter!=undefined){
+      else if(user.favq=="Academic"||user.favq=="Physical"||user.favq=="Cultural"){//if (this.state.qfilter!=undefined){
         // alert('we went here too')
+        questData=[]
         for (let i = 0; i < list.length && questData.length<3; ++i) {
             if (list[i].type==user.favq){
               questData.push({
@@ -112,6 +113,8 @@ class CommunityScreen extends Component {
           this.loaded = true;
           this.forceUpdate();
       }
+      this.setq()
+
 
     });
     //var temp = [];
