@@ -22,11 +22,12 @@ class ProfileScreen extends Component {
     }
     else if (d.favq=="Academic"){
       user.questClass="Scholar"
-    } 
+    }
     else if (d.favq=="Other"){
       user.questClass="Individual"
     }
-    this.setState({username:d.uname})
+    user.favq=d.favq
+
     this.setState({description:d.desc})
     this.setState({favquest:d.favq})
     // yo=d.uname

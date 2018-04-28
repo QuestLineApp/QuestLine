@@ -109,6 +109,7 @@ class EditProfileScreen extends Component {
         <Picker.Item label = "Academic" value = "Academic" />
         <Picker.Item label = "Other" value = "Other" />
       </Picker>
+
       <TextInput
       placeholder="Description"
       style={styles.inputDescription}
@@ -116,7 +117,7 @@ class EditProfileScreen extends Component {
       />
 
       <Text style={{fontSize: 15}}>Pick your favorite Quest type:</Text>
- 
+
       <Button
          blocks
          bordered

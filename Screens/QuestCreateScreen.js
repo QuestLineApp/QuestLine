@@ -18,7 +18,7 @@ class QuestCreateScreen extends Component {
         this.setState({
           userLat: position.coords.latitude,
           userLong: position.coords.longitude,
-          error: null,  
+          error: null,
         });
       },
       (error) => this.setState({ error: error.message }),
@@ -64,11 +64,11 @@ class QuestCreateScreen extends Component {
   }
 
   static navigationOptions = {
-    drawerIcon: (
-      <Image source={require('../assets/plus.png')}
-      style={{height:24, width:24}} />
-    )
-  }
+     drawerIcon: (
+       <Image source={require('../assets/plus.png')}
+       style={{height:24, width:24}} />
+     )
+   }
 
   render() {
     return (
@@ -116,6 +116,7 @@ class QuestCreateScreen extends Component {
               longitudeDelta: 0.0842,
             }}
             showsUserLocation={true}
+            followsUserLocation={true}  //made this follow user location for testing // TODO: switch back?
             onPress={e=>
               { this.setState(
                 {
@@ -134,6 +135,7 @@ class QuestCreateScreen extends Component {
               title={"position"}
               />
           </MapView>
+
 
           <Button block light onPress={()=> this.saveQuest()}><Text> Save Quest </Text></Button>
 
