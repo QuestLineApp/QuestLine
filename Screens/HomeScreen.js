@@ -99,8 +99,8 @@ class HomeScreen extends Component {
         questData.push({
           key:i,
           title: list[i].name,
-          description: list[i].description + "\nType:          " + list[i].type +
-          "\nDifficulty:   " + difficulty[list[i].difficulty],
+          description: list[i].description + "\nType: " + list[i].type +
+          "\nDifficulty: " + difficulty[list[i].difficulty],
           latitude: list[i].latitude,
           longitude: list[i].longitude,
           type: type[list[i].type],

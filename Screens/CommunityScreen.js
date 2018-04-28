@@ -37,7 +37,7 @@ class CommunityScreen extends Component {
       // physical: 15,
       // academic: 30,
     };
-    // this.setq()
+    this.setq()
     // AsyncStorage.getItem('localQuestList').then( value => {
     //   this.setState({'localQuestList': JSON.parse(value) });
     //   console.log('mounting and set: ' + JSON.stringify(this.state.localQuestList));
@@ -69,10 +69,8 @@ class CommunityScreen extends Component {
       let list = this.state.localQuestList.list;
       console.log("building list");
       //alert(user.favq)
-      if (user.favq==undefined||user.favq=="not yet selected, set on profile page"||user.favq=="Other"){
+      if (user.favq==undefined||user.favq=="not yet selected. Set it on profile page"||user.favq=="Other"){
         // alert('we went here')
-
-
         for (let i = 0; i < list.length && questData.length<3; ++i) {
             questData.push({
               key:i,
@@ -87,13 +85,18 @@ class CommunityScreen extends Component {
               value: 4 // And this???
             });
           }
+          this.orderData()
           console.log(JSON.stringify(questData),'building finished');
           this.loaded = true;
           this.forceUpdate();
       }
-      else if(user.favq=="Academic"||user.favq=="Physical"||user.favq=="Cultural"){//if (this.state.qfilter!=undefined){
+      else if (user.favq=="Academic"||user.favq=="Physical"||user.favq=="Cultural"){
         // alert('we went here too')
-        questData=[]
+        if(questData.length>0){
+          if(questData[0].type!=user.favq){
+            questData=[]
+          }
+        }
         for (let i = 0; i < list.length && questData.length<3; ++i) {
             if (list[i].type==user.favq){
               questData.push({
@@ -109,12 +112,11 @@ class CommunityScreen extends Component {
                 value: 4 // And this???
               });}
           }
+          this.orderData()
           console.log(JSON.stringify(questData),'building finished');
           this.loaded = true;
           this.forceUpdate();
       }
-      this.setq()
-
 
     });
     //var temp = [];
@@ -165,6 +167,20 @@ class CommunityScreen extends Component {
       <Image source={require('../assets/group.png')}
              style={{height:24, width:24}} />
     )
+  }
+  orderData(){
+    newData=[]
+    if(questData.length>1){
+      newVal=questData[0]
+      //newData.push(newVal)
+      for (var i = 0; i < questData.length ; i++) {
+        if (newVal!=questData[i]){
+          newVal=questData[i]
+          newData.push(newVal)
+        }
+      }
+      questData=newData
+    }
   }
   getDifficulty(item)
   {
@@ -308,22 +324,25 @@ class CommunityScreen extends Component {
         }}>
         <Text style={styles.topQuests}>Top 3 Quests for you (because your favorite quest type is {user.favq})</Text>
         <Button
-           blocks
            bordered
+           block
+           light
            onPress={this.questOne}
            color="red"
            style={styles.listButtons}
          >{this.getTextOne()}</Button>
          <Button
-            blocks
             bordered
+            block
+            light
             onPress={this.questTwo}
             color="red"
             style={styles.listButtons}
           >{this.getTextTwo()}</Button>
           <Button
-             blocks
              bordered
+             block
+             light
              onPress={this.questThree}
              color="red"
              style={styles.listButtons}

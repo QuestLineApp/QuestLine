@@ -79,7 +79,7 @@ module.exports = StyleSheet.create({
       loginDiv: {
         //backgroundColor: 'grey',
         borderBottomWidth: 5,
-        // borderColor: 'rgb(0,0,0)',
+        borderColor: 'white',
         fontSize: 20,
         color: 'white'
       },
@@ -215,19 +215,22 @@ module.exports = StyleSheet.create({
         // width:'100%'
       },
       topQuests:{
-        color:'black',
-        // textAlign:'center',
+        //flex:1,
+        backgroundColor:'rgba(0, 138, 142,.3)',
+        color:'white',
+        //textShadowColor:'black',
+        textAlign:'center',
+        fontWeight: 'bold',
         // position: 'absolute',
-        // alignItems: 'center',
+        alignItems: 'center',
         // justifyContent: 'center',
         fontSize: 20,
       },
       newloginDiv: {
         //backgroundColor: 'grey',
-        borderBottomWidth: 5,
-        // borderColor: 'rgb(0,0,0)',
-        fontSize: 20,
-        color: 'black'
+        borderColor: 'white',
+        fontSize: 22,
+        color: 'white'
       },
       listButtons:{
         alignItems: 'center',
@@ -235,8 +238,10 @@ module.exports = StyleSheet.create({
         // bottom: 10,
         // top:50
         width:'100%',
+        height:'15%',
+        color:'white',
         // borderColor: 'rgba(31, 39, 192,.5)',
-        backgroundColor: 'rgba(31, 39, 192,.1)',
+        backgroundColor: 'rgba(0, 89, 91,.3)',
       }
 
 
